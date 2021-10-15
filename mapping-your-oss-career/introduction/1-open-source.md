@@ -1,4 +1,4 @@
-![welcome image](images/image-1.jpg)
+![welcome image](../images/image-1.jpg)
 
 Photo by <a href="https://unsplash.com/@thoughtcatalog?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Thought Catalog</a> on <a href="https://unsplash.com/s/photos/smiling-woman-business?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
