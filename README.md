@@ -5,7 +5,7 @@ Courses Microsoft's OSPO has built for our internal open source community focuse
 # Format and Structure
 This repository contains a number of courses (and we will add more in future) that we use internally to drive knowledge and culture around open source at Microsoft.   
 - Each course is broken into modules, and chapters, prefixed by a number to reflect order.  
-- Files are written in markdown to be simplest for transfering to other learning systems. I have used [Jekyll](https://jekyllrb.com/) and [Course in a Box](https://course-in-a-box.p2pu.org/#:~:text=P2PU%20created%20Course-in-a-Box%20in%202014%20as%20a%20free,and%20we%20welcome%20contributions%20on%20our%20Github%20repo.) to present modular content.
+- Files are written in markdown to be simplest for transferring to other learning systems. I have used [Jekyll](https://jekyllrb.com/) and [Course in a Box](https://course-in-a-box.p2pu.org/#:~:text=P2PU%20created%20Course-in-a-Box%20in%202014%20as%20a%20free,and%20we%20welcome%20contributions%20on%20our%20Github%20repo.) to present modular content using GitHub pages, these are also easy to cut and paste into Moodle and other Learning Management Systems.
 - We have replaced Microsoft brand images with those licensed through [Unsplash](https://unsplash.com/).
 
 --- 

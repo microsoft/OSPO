@@ -2,14 +2,12 @@
 
 Photo by <a href="https://unsplash.com/@thoughtcatalog?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Thought Catalog</a> on <a href="https://unsplash.com/s/photos/smiling-woman-business?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-Simply put, open source software ("OSS"), is that which has the source code freely available for possible modification and redistribution as determined by the accompanying OSS license.  OSS has accelerated the pace of innovation through ecosystem collaboration - making software more secure, of higher quality and more accessible to diverse groups of developers and users.
+Simply put, open source software ("OSS"), is that which has the source code freely available for possible modification and redistribution as described in an open source license.  OSS has accelerated the pace of innovation through ecosystem collaboration making software more secure, of higher quality and more accessible to diverse groups of developers and users.
 
-Today, the open source ecosystem continues to evolve with challenges of humanity on topics of ethics, access and economics. **The opportunity of open source at this moment in time has never been greater - to supercharge your career, bring value back to products, customers and our [COMPANY NAME] mission over all**: to empower every person and every organization on the planet to achieve more.
+Today, the open source ecosystem continues to evolve with challenges of humanity on topics of ethics, access and economics. **The opportunity of open source at this moment in time has never been greater to supercharge your career, bring value back to products, customers and our company's mission overall.
 
-[TODO SORT OUT WHICH IS INTRO]
-  
 # Welcome!
-![Satya-quote](images/image-2.jpg) 
+![Satya-quote](..images/image-2.jpg) 
 
 This course provides an inspiring overview of the potential of open source to supercharge your career, product and customer goals as told through the inspiring stories of open source maintainers.
 
