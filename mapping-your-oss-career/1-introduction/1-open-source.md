@@ -7,7 +7,7 @@ Simply put, open source software ("OSS"), is that which has the source code free
 Today, the open source ecosystem continues to evolve with challenges of humanity on topics of ethics, access and economics. **The opportunity of open source at this moment in time has never been greater to supercharge your career, bring value back to products, customers and our company's mission overall.
 
 # Welcome!
-![Satya-quote](..images/image-2.jpg) 
+![Satya-quote](../images/image-2.jpg) 
 
 This course provides an inspiring overview of the potential of open source to supercharge your career, product and customer goals as told through the inspiring stories of open source maintainers.
 
