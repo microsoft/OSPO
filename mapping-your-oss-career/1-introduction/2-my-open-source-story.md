@@ -6,4 +6,4 @@ Watch their open source story below.
 
 ---
 
-[![Alt text](../images/nell.JPEG)](https://www.youtube.com/watch?v=abfuRJ6G9EQ&ab_channel=Microsoft)
+[![Nell Shamrell Harrington](../images/nell.jpeg)](https://www.youtube.com/watch?v=abfuRJ6G9EQ&ab_channel=Microsoft)
