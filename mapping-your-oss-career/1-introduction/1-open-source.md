@@ -29,4 +29,4 @@ On average this course takes about one hour to complete, and includes a mapping 
 
 
 
-** This is recommended training for engineers all staff working in community-facing roles.
+** This is recommended training for engineers all staff working in community-facing roles.**
