@@ -3,7 +3,7 @@
 Karen Chu is a community PM on Microsoft Azure Container Computer Upstream, with a focus on open source tools such as Helm, CNAB, Brigade, Virtual Kubelet and more.  She is a CNCF Ambassador, as well as meetup and conference organizer.  Watch her open source story below:
 
 
-[![Karen Chu](https://img.youtube.com/vi/Kx_fBbffab8/0.jpg)](https://www.youtube.com/watch?v=Kx_fBbffab8&ab_channel=Microsoft)
+![Karen Chu](../images/karen-chu.jpeg)
 
 ---
 

@@ -1,6 +1,6 @@
 # Diversity, Equity and Inclusion in Open Source
 
-> Diversity is a number, inclusion is a process, equity is the outcome
+> "*Diversity is a number, inclusion is a process, equity is the outcome*"
 - Jess Mitchell
 
 To ensure that all of Microsoft's projects are inclusive and welcoming, our projects abide by our [Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).   The Code of Conduct is something we strictly enforce, and for which everyone is expected to follow. 
