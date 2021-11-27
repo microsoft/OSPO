@@ -7,13 +7,12 @@ This is one of my favorite quotes, when describing why we need policy, process a
 
 **Open is not the same as inclusive.**
 
-
 # Meritocracy and the myth of open
 The open source story, is actually one filled with intention - intention that by saying a project is 'open' everyone is welcome, everyone can contribute and everyone can be successful, which we know hasn't been how its played out.  In large part, this is also a result meritocratic governance being primary and dominant approach to governance for well over a decade.
 
 Mitchell Baker of the Mozilla project summarizes they removed meritocracy from their governance page: 
 
-![Mitchell Baker speaking on stage](images/mb.jpg)
+![Mitchell Baker speaking on stage](../images/mb.jpg)
 
 [Mitchell Baker](https://www.flickr.com/photos/hfiguiere/11370773124/), by Hubert Figuière, [CC BY-SA-2.0](https://creativecommons.org/licenses/by-sa/2.0/) 
 
