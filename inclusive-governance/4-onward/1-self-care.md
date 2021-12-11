@@ -1,0 +1,3 @@
+# Self Care
+
+As one person supporting another, whether taking a report or helping find resolution, its completely normal and expected that you might also feel impacted.  There's no 'right' way to feel, or to manage feelings where you encounter someone in distress but its incredibly important that you feel safe supported as part of the process. Minimally, you should feel empowered to step away and if needed, ask for help from your manager or consult HR resources to look for ways [Company] ca support your wellbeing.
