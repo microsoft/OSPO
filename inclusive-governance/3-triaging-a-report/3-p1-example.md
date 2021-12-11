@@ -1,6 +1,6 @@
 # P1 This report is urgent – drop everything else
 
-This are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.
+**NOTE:** *These are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.*
 
 *For cases of this urgency, its important to work with HR, legal, policy and other stakeholders as much as possible while prioritizing the privacy and safety of individuals.*
 
@@ -26,7 +26,7 @@ In a situation like this, issuing a warning or ban would be unlikely to stop the
 
 While it may be tempting to dismiss anything that happens outside of your project as being 'out of your control', the impact on your community is unchanged.  Microsoft's code of conduct includes a line to make clear:
 
-> This Code of Conduct also applies to actions taken outside of these spaces, and which have a negative impact on community health.
+> *(From Microsoft's COde of Conduct) This Code of Conduct also applies to actions taken outside of these spaces, and which have a negative impact on community health*.
 
 As this is a clear P1 violation, and bold attempt to intimidate, humiliate and upset individuals in the community the consequence ladder can be helpful. 
 

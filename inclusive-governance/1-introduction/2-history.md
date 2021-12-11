@@ -6,6 +6,6 @@
 
  It’s simply not enough to count who makes it through the gauntlet of tasks and exclusive cultural norms that lead to a first pull request; it’s not enough to celebrate increased diversity if the experiences of those who are underrepresented don't feel safe, or lacking equity.
 
- If you take a look at this college of articles about diversity in open source, you can see one on the top left 'Women in Open Source - the Canary in the Coal Mine'... that article is from 2002.  Today, initiatives like [All In](https://github.com/AllInOpenSource/All-In) from GitHub, and community efforts like [Open Source Diversity](https://opensourcediversity.org/), are still tacking this same problem.  Twenty years later. 
+ If you take a look at this college of articles about diversity in open source, you can see one on the top left 'Women in Open Source - the Canary in the Coal Mine'... **that article is from 2002**.  Today, initiatives like [All In](https://github.com/AllInOpenSource/All-In) from GitHub, and community efforts like [Open Source Diversity](https://opensourcediversity.org/), are still tacking this same problem.  **Twenty years later**. 
 
- This is not news, and a perquisite of this course is that you already understand how critical diversity is for people, for innovation, for communities  - and that we have a long way to go.
+ This is not news.  A perquisite of this course is that you already understand how critical diversity is for people, for innovation, for communities  - and that we have a long way to go.  

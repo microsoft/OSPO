@@ -1,19 +1,22 @@
-#P3 Report: This report does not require immediate action.
+# P3 Report: This report does not require immediate action.
 
-These are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.
+**NOTE:** *These are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.*
 
 **Example Scenario 1**: A maintainer, or community leader on a project has been reported to you as someone who they feel is gatekeeping. On review of submitted comments, issues you can see that while the maintainer is being very dismissive of certain contributions, and contributors even going so far as to insult the contribution.
 
 > 'You can't be serious, this is garbage!'
+
 > 'Maybe go learn to code first, and then come back, we don't need toddler contributions here'
+
 >  Closes issues or PRs without comment.
+
 > 'I can't understand you'
 
 This does look like gatekeeping because, they are not giving useful feedback, their tone is toxic, they are not attempting to create equity by trying to understand and learn -  and is likely to completely discourage contributions from that same person, or others who may have standing in the community, or who are underrepresented in the community.  There are also enough examples to show a trend.
 
-In this case if this maintainer is employed by a company to maintain a project, it would be appropriate to research the policy for reporting employees.  Those HR processes won't specifically mention the open source code of conduct, but that connection can be made during the report.  The benefit of looping in HR processes is that the community leadership is  responsible for the decision, and are less likely to be retaliated against by that person.
+**In this case if this maintainer is employed by a company to maintain a project, it would be appropriate to research the policy for reporting employees**.  Those HR processes won't specifically mention the open source code of conduct, but that connection can be made during the report.  The benefit of looping in HR processes is that the community leadership is  responsible for the decision, and are less likely to be retaliated against by that person.
 
-If this person is a community leader (not paid for the role), then the community process would need to address.  In cases where you deal with someone who has existed, and been unchallenged for their behaviors for a duration of time can be tough, in that this person is unlikely to agree with the assessment in the short term.  On the enforcement ladder, sometimes a temporary ban is helpful to give people time and space to evaluate.  A temporary ban can also come with requirements that this person commit to the Code of Conduct in some visible way that creates trust for the community that should they return, things will be different. 
+**If this person is a community leader (not paid for the role), then the community process would need to address**.  In cases where you deal with someone who has existed, and been unchallenged for their behaviors for a duration of time can be tough, in that this person is unlikely to agree with the assessment in the short term.  On the enforcement ladder, sometimes a temporary ban is helpful to give people time and space to evaluate.  A temporary ban can also come with requirements that this person commit to the Code of Conduct in some visible way that creates trust for the community that should they return, things will be different. 
 
 There's a whole range of scenarios where this person might be the only maintainer, or also the enforcer of the code of conduct that might result in consequences being unlikely. In this case the role of mobility (move elsewhere), or quite honestly - forking a project can be an option. In the context of software used by your company or organization, this is a conversation to bring to legality.
 
@@ -21,8 +24,8 @@ There's a whole range of scenarios where this person might be the only maintaine
 
 These kind of toxic situations aren't articulated well in Codes of Conduct (but related behaviors can be covered in participation guidelines/etiquette guidelines), and really what you become up against is mitigating the opportunity for people to disrupt the harmony and safety in your project community.  This is where the ladder can be useful.  Sending a warning to this person, letting them know that continued behavior will not be tolerated is both an opportunity for this person to step back, and a way to communicate that escalations in consequence will be the next step. Should their behaviors continue, they should trust that so too will the consequences.  To ban someone from community systems can be challenging - especially if they create duplicate accounts to replaced banned accounts, working as much with TOC violations of platforms you're working on will be helpful.
 
-**Example Scenario 3**: Someone complains that mansplaining was used by another person and it made them feel discriminated against. Their position is that it is sexist against men.
+**Example Scenario 3**: Someone complains that man'splaining was used by another person and it made them feel discriminated against. Their position is that it is sexist against men.
 
-This is tricky! On one side you might think to yourself, yeah, I mean we talk about inclusion and avoiding sexism, why shouldn't that apply here?  This is a good time to ask questions, is this man himself underrepresented or marginalized? was the person using the term of a similar demographic or themselves underrepresented? Would issuing a consequence to the person who used the term potentially reinforce negative power structures?  Is this person weaponizing (using the code of conduct as a tool to oppress?), these are all possible.  
+This is tricky! On one side you might think to yourself, yeah, I mean we talk about inclusion and avoiding sexism, why shouldn't that apply here?  This is a good time to ask questions, is this man himself underrepresented or marginalized? Was the person using the term of a similar demographic or themselves or underrepresented? Would issuing a consequence to the person who used the term potentially reinforce negative power structures?  Is this person weaponizing (using the code of conduct as a tool to oppress?), these are all possible.  
 
 Figuring out where the inequity lies, and then working to address, and avoid in future might be some of the best first steps understanding what actions to address (or not).  As usual if this includes staff, use HR process, or if not - community process to avoid adding your own bias to the situation.
