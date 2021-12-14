@@ -21,8 +21,8 @@ Below, organized by priority,  you will find a list of tasks that will connect y
 ## Getting Settled (leveling up your skillset and participation ) 
 *Join in! Participate, learn and experiment.*
 
-- [ ] [Join an Open Source Workshop!](). Whether you are new to open source, or interested in learning more about contributing on behalf of Microsoft, understanding Innersource,  creating inclusive communities, or growing your project - there's something for everyone.  New registration dates are added regularly.  
-- [ ] [Nominate a project](https://github.com/microsoft/foss-fund/blob/main/README.md) for the monthly FOSS Fund (and make sure to vote).  Help Microsoft support the open source ecosystem! 
+- [ ] [Join an Open Source Workshop!](). Whether you are new to open source, or interested in learning more about contributing on behalf of [COMPANY], understanding Innersource,  creating inclusive communities, or growing your project - there's something for everyone.  New registration dates are added regularly.  
+- [ ] [Nominate a project](https://github.com/microsoft/foss-fund/blob/main/README.md) for the monthly FOSS Fund (and make sure to vote).  Help [COMPANY] support the open source ecosystem! 
 - [ ] Familiarize yourself with [Engineering Productivity metrics for InnerSource collaboration](). 
 
 ## Feeling Settled (ongoing!) 
