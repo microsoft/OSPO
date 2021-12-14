@@ -1,4 +1,4 @@
-# Getting Involved - Open Source at [COMPANY]]
+# Getting Involved - Open Source at [COMPANY]
 *NOTE: This list contains specific action items, but its up to the individual or organization to update with links relevant to your group.
 
 Below, organized by priority,  you will find a list of tasks that will connect you with tools, policy, procedures (and most importantly) people in our open source at [COMPANY] community. 
