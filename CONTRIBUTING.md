@@ -2,12 +2,7 @@
 
 # Contributing to OSPO Courses
 
-This is an open source project created share some of the training we've built to encourage and inclusive, empowered open source culture at Microsoft.  We will continue to share updates and improvements  - and welcome your contributions including improvements as well.  Some idea should you wish to contribute:
-- Translations
-- Grammatical fixes
-- Updates (this topic is always evolving, help us keep it relevant)
-- Feedback
-- Issues
+This is an open source project created share some of the training we've built to encourage and inclusive, empowered open source culture at Microsoft.  We will continue to share updates and improvements  - and welcome your contributions including improvements as well. 
 
 There may also be an open issue, if you see one you like - would love your help.  Thank you!
 
@@ -21,6 +16,13 @@ One of the best ways to learn about the project, take a look through the [README
 
 # How to get involved
 Ready to jump in?  Great!   Here are some ways you can help:
+
+- Translations
+- Grammatical fixes
+- Updates (this topic is always evolving, help us keep it relevant)
+- Feedback
+- Issues
+
 
 ## Found an Issue?
 If you find a bug in the source code or a mistake in the documentation, you can help us by
