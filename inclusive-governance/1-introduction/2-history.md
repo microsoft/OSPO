@@ -8,4 +8,4 @@
 
  If you take a look at this college of articles about diversity in open source, you can see one on the top left 'Women in Open Source - the Canary in the Coal Mine'... **that article is from 2002**.  Today, initiatives like [All In](https://github.com/AllInOpenSource/All-In) from GitHub, and community efforts like [Open Source Diversity](https://opensourcediversity.org/), are still tacking this same problem.  **Twenty years later**. 
 
- This is not news.  A perquisite of this course is that you already understand how critical diversity is for people, for innovation, for communities  - and that we have a long way to go.  
+ This is not news.  For this reason, it is a perquisite of this course is that you already understand how critical diversity is for people, for innovation, for communities  - and that we have a long way to go.  

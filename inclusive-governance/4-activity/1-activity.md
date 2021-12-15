@@ -4,7 +4,7 @@ As mentioned, creating Etiquette Guidelines can be very helpful in encouraging t
 
 Below you'll find a worksheet to help you, and your team brainstorm your Etiquette Guidelines. It asks:
 
-* **Who will be participating in your project?**: Some example answers might be 'staff engineers', 'contributing engineers', 'technical writers', and 'program managers'.
+* **Who will be participating in your project?** Some example answers might be 'staff engineers', 'contributing engineers', 'technical writers', and 'program managers'.
 * **What tools will you use, and how will people use that tool to collaborate?**: Some answers might be 'GitHub (issues, PRs, Discussions)', or 'Slack(post a question, respond to a question)'.
 
 **And then for each:**

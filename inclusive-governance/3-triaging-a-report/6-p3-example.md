@@ -1,5 +1,7 @@
 # P3 Report: This report does not require immediate action.
 
+![p1](../images/p3.jpeg)
+
 **NOTE:** *These are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.*
 
 **Example Scenario 1**: A maintainer, or community leader on a project has been reported to you as someone who they feel is gatekeeping. On review of submitted comments, issues you can see that while the maintainer is being very dismissive of certain contributions, and contributors even going so far as to insult the contribution.
@@ -19,6 +21,8 @@ This does look like gatekeeping because, they are not giving useful feedback, th
 **If this person is a community leader (not paid for the role), then the community process would need to address**.  In cases where you deal with someone who has existed, and been unchallenged for their behaviors for a duration of time can be tough, in that this person is unlikely to agree with the assessment in the short term.  On the enforcement ladder, sometimes a temporary ban is helpful to give people time and space to evaluate.  A temporary ban can also come with requirements that this person commit to the Code of Conduct in some visible way that creates trust for the community that should they return, things will be different. 
 
 There's a whole range of scenarios where this person might be the only maintainer, or also the enforcer of the code of conduct that might result in consequences being unlikely. In this case the role of mobility (move elsewhere), or quite honestly - forking a project can be an option. In the context of software used by your company or organization, this is a conversation to bring to legality.
+
+---
 
 **Example Scenario 2**: A person has been opening issues after issue about a feature or update that your product has made in recent weeks that they strongly disagree with. As a maintainer, or community leader, you have done your best to address their concerns, and even to consult internal stakeholders with that feedback to double-check the product roadmap and position.  You have indicated to this person the reasons for he updates/changes, and yet they repeat the same challenges - unwilling, it seems to accept the decision and feedback.  This person then begins emailing people at the organization, including your CEO. While not specifically a violation of the code of conduct, it is absolutely **disruptive behavior**.
 
