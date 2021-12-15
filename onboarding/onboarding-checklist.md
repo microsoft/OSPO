@@ -1,11 +1,9 @@
-# Getting Involved - Open Source at [COMPANY]]
+# Getting Involved - Open Source at [COMPANY]
 *NOTE: This list contains specific action items, but its up to the individual or organization to update with links relevant to your group.
 
 Below, organized by priority,  you will find a list of tasks that will connect you with tools, policy, procedures (and most importantly) people in our open source at [COMPANY] community. 
-
-If you run into any questions, please reach out to ospocore@microsoft.com or anyone from the OSPO team. 
   
-## First Steps! (quick first steps to connect with the open source community inside of Microsoft) 
+## First Steps! (quick first steps to connect with the open source community inside of [COMPANY]) 
 *Setup for connection and opportunity by joining these important open source mailing lists*. 
 
 - [ ]  [Join our Open Source  Channel and say hello!]()!  Meet others working across [COMPANY] on open source - this is a great place to ask questions, but also to share your expertise.   
@@ -23,8 +21,8 @@ If you run into any questions, please reach out to ospocore@microsoft.com or any
 ## Getting Settled (leveling up your skillset and participation ) 
 *Join in! Participate, learn and experiment.*
 
-- [ ] [Join an Open Source Workshop!](). Whether you are new to open source, or interested in learning more about contributing on behalf of Microsoft, understanding Innersource,  creating inclusive communities, or growing your project - there's something for everyone.  New registration dates are added regularly.  
-- [ ] [Nominate a project](https://github.com/microsoft/foss-fund/blob/main/README.md) for the monthly FOSS Fund (and make sure to vote).  Help Microsoft support the open source ecosystem! 
+- [ ] [Join an Open Source Workshop!](). Whether you are new to open source, or interested in learning more about contributing on behalf of [COMPANY], understanding Innersource,  creating inclusive communities, or growing your project - there's something for everyone.  New registration dates are added regularly.  
+- [ ] [Nominate a project](https://github.com/microsoft/foss-fund/blob/main/README.md) for the monthly FOSS Fund (and make sure to vote).  Help [COMPANY] support the open source ecosystem! 
 - [ ] Familiarize yourself with [Engineering Productivity metrics for InnerSource collaboration](). 
 
 ## Feeling Settled (ongoing!) 
