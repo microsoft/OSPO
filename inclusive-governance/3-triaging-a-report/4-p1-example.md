@@ -1,10 +1,10 @@
 # P1 This report is urgent – drop everything else
 
+![p1](../images/p1.jpeg)
+
 **NOTE:** *These are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.*
 
 *For cases of this urgency, its important to work with HR, legal, policy and other stakeholders as much as possible while prioritizing the privacy and safety of individuals.*
-
-[TODO: Image]
 
 **Example Scenario 1**:  A well known and liked contributor to your project, after an absence for unknown reasons returns to your project with a noticeably different tone.  They are impatient with maintainers, and being very short in responses to comments on their PRs.  It's challenging for the maintainer to understand the behaviors, and tries to be as patient as possible waiting for this person's usual-self to return.  For reasons that aren't clear this person begins to included personal information in their complaints
 
@@ -21,6 +21,7 @@ Many times, we focus on P1 (urgent, stop everything) type issues as being someon
 
 In a situation like this, issuing a warning or ban would be unlikely to stop the behaviors, and perhaps further impact both the community, and this individual. It's important to work with your legal, HR and safety experts to decide on which steps will result in the least likely path for harm  
 
+--- 
 
 **Example Scenario 2**:  A person known to your project posts pornographic material in a chat channel used by many community members, but not an official channel for your project.  Community members reach out to you, or someone on your project to report this as a violation of your CoC.
 
@@ -29,6 +30,8 @@ While it may be tempting to dismiss anything that happens outside of your projec
 > *(From Microsoft's COde of Conduct) This Code of Conduct also applies to actions taken outside of these spaces, and which have a negative impact on community health*.
 
 As this is a clear P1 violation, and bold attempt to intimidate, humiliate and upset individuals in the community the consequence ladder can be helpful. 
+
+---
 
 **Example Scenario 3**:  Someone at ane community event reaches out to you, that another community member has made racist, sexist comments towards them. 
 

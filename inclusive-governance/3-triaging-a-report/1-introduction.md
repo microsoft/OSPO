@@ -1,6 +1,8 @@
 # Taking and Giving a Report
 
-[TODO PHOTO]
+![a non-binary femme student talking to a someone in front of a locker](../images/reporting.jpg)
+
+[The Gender Spectrum Collection](https://creativecommons.org/licenses/by-nc-nd/4.0/) , [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 The heart of our workplace and communities, whether online or in-person  - are the people.   In this module you'll learn some of the best practices for taking and giving a report in a way that prioritizes the safety and wellbeing of those involved.
 

@@ -1,5 +1,10 @@
 # Diversity, Equity and Inclusion in Open Source
 
+![welcome - an image of three individuals with varying ethnic backgrounds sit with laptops together](../images/welcome.jpg)
+
+Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christina @ wocintechchat.com</a> on <a href="https://unsplash.com/s/photos/diversity?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+
 > "*Diversity is a number, inclusion is a process, equity is the outcome*" - Jess Mitchell
 
 This quote is really important framing for diversity, equity and inclusion in open source. Take a moment to think about it - diversity is a **NUMBER**. While it's true that seeing an increase in number of those who have been historically unrepresented in open source can be a positive signal, it's not the end goal.  **The end goal is equity, and inclusion is the process to get there**. Open source governance needs inclusive processes to ensure equity across our projects and communities. 

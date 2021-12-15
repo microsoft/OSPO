@@ -1,5 +1,7 @@
 # P4 Report: This report type contains no clear violation of our code of conduct and is thus out of scope
 
+![p1](../images/p4.jpeg)
+
 **NOTE:** *These are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.*
 
 These is are all examples based on the types of incidents which can occur in an open source community, and not based on any specific events or incidents and do not come with prescriptive resolutions. Rather, these are intended to help you practice thinking about the context, capacity and scope of incidents.

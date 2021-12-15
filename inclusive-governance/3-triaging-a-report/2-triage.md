@@ -2,7 +2,8 @@
 
 This infographic, while only for educational use, and not a substitute for legal, HR and other guidance, is helpful for determining how to evaluate and prioritize reports.   Take a moment to review the triage steps, paying particular attention to how priority might be assigned, and order of actions to take.
 
-[TODO Image]
+![light info-graphic please see text based link below for text version](../images/Final-light-mode_external_small.jpg)
+
 
 For non-urgent reports the steps are fairly straight forward:
 
@@ -17,6 +18,8 @@ If the report does not involve a staff member, use the relevant option to your p
 # Available versions
 * [Text based, PDF](../assets/triage-report-text.pdf)
 * [Text based, Google Doc](https://docs.google.com/document/d/1MEXZDZIykxHpVGW76v0elbDZinXTkHgZ6zfX9RY08DY/edit#heading=h.f9zu6t8w9cal)
-* [Text based, Word Doc(https://microsoft-my.sharepoint.com/:w:/p/emmairwin/EQfVzxHnVuxMo2vqSE7tAVMBM7PCuuvh98fxTJeqpuA0UA?e=Kjlhwa)
-* Infographic - Light
-* Infographic - Dark
+* [Text based, Word Doc](https://microsoft-my.sharepoint.com/:w:/p/emmairwin/EQfVzxHnVuxMo2vqSE7tAVMBM7PCuuvh98fxTJeqpuA0UA?e=Kjlhwa)
+* [Infographic - Light JPG](../images/Final-light-mode_external.jpg)
+* [Infographic - Light PDF](../images/Final-light-mode_external.pdf)
+* [Infographic - Dark JPG](../images/Final-light-mode_external.jpg)
+* [Infographic - Light PDF](../images/Final-light-mode_external.pdf)
