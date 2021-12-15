@@ -15,5 +15,5 @@ Below you'll find a worksheet to help you, and your team brainstorm your Etiquet
 From here you can begin go build out your guidelines.  We recommend that you do this as a group activity, to align with others in the community where ultimately the responsibility to lead by example lives.
 
 ## Resources
-* Example (completed) Etiquette Guidelines Worksheet (Google Doc), (PDF)
-* Blank Etiquette Guidelines Worksheet (Google Doc), (PDF)
+* Example (completed) Etiquette Guidelines Worksheet ([Google Doc](https://docs.google.com/document/d/1oX0odXst7eu13-8MDQU1hiqab0Jlycigq2tD9y63PlQ/edit)), ([PDF](../assets/example-worksheet.pdf))
+* Blank Etiquette Guidelines Worksheet ([Google Doc](https://docs.google.com/document/d/1spQaOg0wVN6gH0zgJXbpikPDF-vsT_jSCkjW1kRosbU/edit)), ([PDF](../assets/worksheet.pdf))
