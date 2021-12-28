@@ -38,5 +38,5 @@ Below, organized by priority,  you will find a list of tasks that will connect y
 - [ ] Contribute shout outs, and other content to the Open Source newsletter. 
 
 ## Optional
-- [ ] Learn about component detection(https://github.com/microsoft/component-detection).
+- [ ] [Learn about component detection](https://github.com/microsoft/component-detection).
 
