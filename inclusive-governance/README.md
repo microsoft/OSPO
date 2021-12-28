@@ -3,7 +3,7 @@
 # Inclusive Open Source Governance
 
 ## Description
-This course provides a high level overview of inclusive open governance in open source through equitiable enforcement of a code of conduct, with the standards at Microsoft which support equitable outcomes in open collaboration.
+This course provides a high level overview of inclusive open governance in open source through equitiable enforcement of a code of conduct, with an introduction to standards at Microsoft which support equitable outcomes in open collaboration.
 
 # Learning Goals
 
