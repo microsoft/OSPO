@@ -1,5 +1,5 @@
 
-#Mapping Your Open Source Career
+# Mapping Your Open Source Career
 
 ## Description
 This course provides learners with an inspiring overview of the skills, knowledge, opportunities that open source can provide to their personal and career goals - with an activity that helps pull everything together in a 'career map'.
