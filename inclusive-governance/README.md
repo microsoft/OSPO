@@ -1,6 +1,6 @@
 
 
-#Mapping Your Open Source Career
+# Mapping Your Open Source Career
 
 ## Description
 This course provides a high level overview of inclusive open governance in open source, and the standards at Microsoft which support equitable outcomes in open collaboration.
