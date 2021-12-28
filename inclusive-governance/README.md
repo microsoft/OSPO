@@ -10,6 +10,7 @@ This course provides a high level overview of inclusive open governance in open 
 **By the end of this course learners will be able to:**
 
 * Articulate the history of open source, and why lack of intention and strategy has led to exclusion and harm of underrepresented and marginalized groups.
+* Understand that equity and trust are prequisite to enforcement.
 * Find clarity and trust around what support, resources and tools exist at Microsoft to ensure your success.
 * Describe the difference between a Code of Conduct and Etiquette Guidelines, as well as the purpose of each.
 * Describe basic steps in taking and handling a report, including those that prioritize the safety and privacy of individuals and organizations.
