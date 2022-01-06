@@ -1,5 +1,7 @@
 # Onboarding to Open Source at Microsoft 101
 
+Microsoft Internal Link:  https://aka.ms/opensource/onboarding
+
 ## Description
 There's a lot of information to process when joining Microsoft, starting in Open Source, or both! With this in mind, the Open Source Programs Office has created an easy-to-navigate GitHub project board: "Onboarding to Open Source at Microsoft.".
 
