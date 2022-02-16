@@ -10,7 +10,7 @@ Photo by <a href="https://unsplash.com/@sadswim?utm_source=unsplash&utm_medium=r
 ## Pulling it All Together - Mapping your Career
 
 Please select one of the following formats to start mapping your open source career:
-- [PDF](resources/my-oss-career.pdf)
+- [PDF](https://github.com/microsoft/OSPO-Courses/blob/main/mapping-your-oss-career/Resources/my-opensource-career-map.pdf)
 - [Google Doc](https://docs.google.com/document/d/1NG2zFUsJDZB9NCk25e_uQrPZMuduXBc4T0fIXL6P-BA/edit?usp=sharing)
 
 This document is a private workspace for you.  You will not be asked to share answers as the purpose is to ensure you have freedom to imagine, freedom to dream as part of the mapping process.
