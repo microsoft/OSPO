@@ -29,7 +29,7 @@ Below, organized by priority,  you will find a list of tasks that will connect y
 *Make learning, participation and collaboration part of your monthly goals*
 
 - [ ] [Setup a 1:1 with an Open Source Champ]()! Reach out to one of our inspiring Champs to learn more about the role of this program in supporting your success.
-- [ ] [Map your Open Source Career](https://github.com/emmairwin/OSPO-Courses/tree/main/mapping-your-oss-career)) at [Company] with this self study course. This course is setup to inspire you in the role of open source in helping you reach your career goals at [company]; includes a worksheet for career discussions with your manager. 
+- [ ] [Map your Open Source Career](https://github.com/microsoft/OSPO-Courses/tree/main/mapping-your-oss-career)) at [Company] with this self study course. This course is setup to inspire you in the role of open source in helping you reach your career goals at [company]; includes a worksheet for career discussions with your manager. 
 
 
 ## Ongoing 
