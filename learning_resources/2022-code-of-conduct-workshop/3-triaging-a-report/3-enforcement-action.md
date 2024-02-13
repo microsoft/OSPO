@@ -14,5 +14,3 @@ There are four areas of risk that we think about in CoC enforcement:
 * **Privacy** -- Privacy, confidentiality, and security of people's data related to reports.
 * **Legal** -- Failure to recognize applicable law, or follow required processes, resulting in potential legal liability. This includes the geographic region where reporter & reported individuals reside.
 * **Brand** -- Mishandling, or not handling, can create mistrust in organizations and narratives beyond their ability to manage.
-
-Next, we'll look at some examples of P1, P2, P3, and P4 incidents, as a way to help you start thinking about how this might work equitably in your project.
