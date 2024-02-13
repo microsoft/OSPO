@@ -1,4 +1,4 @@
-#Leadership
+# Leadership
 These questions are to help surface existing leadership (or if you prefer, 'roles of influence') that someone might hold.  This is helpful to understanding what supports, challenges, and perspectives those with influence hold, and ways to support their success.
 
 **Do you hold a leadership role in any upstream projects used by [Company]?**
