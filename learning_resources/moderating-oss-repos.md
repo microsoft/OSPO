@@ -171,9 +171,7 @@ accountability for the experiences of the most vulnerable and marginalized
 groups in communities, and accountability to ourselves. As such, it's important
 to be on the lookout for behaviors that may target these groups.
 
-You don't need to specifically document those which seem important to highlight
-in the context of your community, again in your CONTRIBUTING.md is a great
-place.
+Suggestion: document a moderation plan internally, so that you can be consistent.
 
 For example...
 
@@ -232,9 +230,9 @@ collaborates on and with.
 
 ### Immediate Ban
 
-If someone looks like a 'drive by' participant in your project or community, and
-by that we mean their interactions have only been disruptive, spammy, harmful or
-otherwise nuisance, reach out to [your escalation path]() to request their account be banned.
+If someone looks like a 'drive by' participant in your project or community (
+unknown account, with only disruptive, spammy, harmful or
+otherwise nuisance interactions), reach out to [your escalation path]() to request their account be banned.
 
 ## :hammer: Your Enforcement Plan
 
@@ -259,12 +257,8 @@ Here are some examples of how you might, as a team, document your approach. It's
 important to remember, that no incident will be the same, and thus some of these
 will need to be tweaked for the situation. Nonetheless it's good to have a plan!
 
-**For violations where an employee (on our team or not) is reporting or being
-repeated.**
-
-- We will follow the guidance given, and not handle this situation.
-
 **For all drive-by violations:**
+Those violations by accounts we do not know, and who are causing disruption despite warning/correction.
 
 We will...
 
@@ -276,7 +270,7 @@ documentation by a known community member as disruptive we will..**
 
 - Give one warning then ban if they continue.
 
-### For violations where the behavior is clearly seeking to be disruptive and the person isn't known in the community
+**For violations where the behavior is clearly seeking to be disruptive and the person isn't known in the community**
 
 We will...
 
