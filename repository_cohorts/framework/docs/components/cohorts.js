@@ -3,6 +3,36 @@
 
 // Need function to change key names first
 
+export const changeKeyNamesObject = {
+    "FullName": "full_name",
+    "OwnerLogin":"owner" ,
+    "Size":"size" ,
+    "StargazersCount": "stargazers_count" ,
+    "OpenIssuesCount": "open_issues_count",
+    "ForksCount":"forks_count" ,
+    "SubscribersCount":"subscribers_count",
+    "Homepage": "homepage" ,
+    "HasIssues": "has_issues",
+    "count_unique_contributor_Ids": "commit_stats_total_committers",
+    "Decription": "description",
+    "UpdatedAt":"updated_at" ,
+    "CreatedAt":"created_at"
+}
+
+export function renameKeys(data, changeKeyNamesObject) {
+    return data.map((item) => {
+        const updatedItem = {};
+        for (const key in item) {
+            if (changeKeyNamesObject.hasOwnProperty(key)) {
+                const newKey = changeKeyNamesObject[key];
+                updatedItem[newKey] = item[key];
+            } else {
+                updatedItem[key] = item[key];
+            }
+        }
+        return updatedItem;
+    });
+}
 
 function addYearToRepos(repos) {
     return repos.map((repo) => {
@@ -54,6 +84,18 @@ function parseColumnsIntoIntegersFromStrings(repos, arrayOfKeys) {
     return repos;
 }
 
+function createCohortTestForNullEmpty(data, columnArray, cohortColName){
+    return data.map((item) => {
+        for (const column in columnArray){
+          if (item[column] == null || item[column] == "") {  ///// typeof item[column] === "undefined" || 
+            console.log("true triggered for value: ",item[column])
+          return { ...item, [cohortColName]: true };
+          }
+        }
+        return { ...item, [cohortColName]: false };
+      });
+  }
+
 function createCohortNumericalCol(data, column, cohortColName, baseThreshold, topThreshold) {
     return data.map((item) => {
       if (item[column] > baseThreshold && item[column] <= topThreshold) {
@@ -63,7 +105,18 @@ function createCohortNumericalCol(data, column, cohortColName, baseThreshold, to
       }
     });
 }
-  
+
+function createCohortNumericalColTwoTests(data, column, cohortColName, baseThreshold, topThreshold, columnB, baseThresholdB, topThresholdB) {
+    return data.map((item) => {
+      if (item[column] > baseThreshold && item[column] <= topThreshold && item[columnB] > baseThresholdB && item[columnB] <= topThresholdB) {
+        return { ...item, [cohortColName]: true };
+      } else {
+        return { ...item, [cohortColName]: false };
+      }
+    });
+}
+
+
 function createCohortStringListPossibleValues(data, column, cohortColName, valueList) {
     return data.map((item) => {
         const columnValue = item[column];
@@ -82,7 +135,7 @@ function createCohortIfEitherColumnIsTrue(data, column1, column2, cohortColName)
         });
 }
 
-export function createCohortColumns(repos, functionList) {
+function createCohortColumns(repos, functionList) {
     let modifiedRepos = [...repos];
     for (const funcObj of functionList) {
         const funcName = Object.keys(funcObj)[0];
@@ -100,8 +153,14 @@ export function createCohortColumns(repos, functionList) {
             case "parseColumnsIntoIntegersFromStrings":
                 modifiedRepos = parseColumnsIntoIntegersFromStrings(modifiedRepos, args);
                 break;
+            case "createCohortTestForNullEmpty":
+                modifiedRepos = createCohortTestForNullEmpty(modifiedRepos, ...args);
+                break;
             case "createCohortNumericalCol":
                 modifiedRepos = createCohortNumericalCol(modifiedRepos, ...args);
+                break;
+            case "createCohortNumericalColTwoTests":
+                modifiedRepos = createCohortNumericalColTwoTests(modifiedRepos, ...args);
                 break;
             case "createCohortStringListPossibleValues":
                 modifiedRepos = createCohortStringListPossibleValues(modifiedRepos, ...args);
@@ -125,26 +184,37 @@ export function repos_cohort_processed_BaseCohorts(repos){
         {"addYearToRepos":[]},
         {"addAgeInDaysCol":[]},
         {"addDaysSinceCols":["updated_at","daysSinceUpdated"]},
-        {"parseColumnsIntoIntegersFromStrings":["commit_stats.total_commits", "commit_stats.total_committers","commit_stats.mean_commits", "commit_stats.dds"]},
-        {"createRatioColumn":["stargazers_count","commit_stats.total_committers","ratio_stargazersToCommitters"]},
-        {"createRatioColumn":["stargazers_count","forks_count","ratio_stargazersToForks"]},
-        {"createRatioColumn":["subscribers_count","commit_stats.total_committers","ratio_watchersToCommitters"]},
+        {"parseColumnsIntoIntegersFromStrings":["commit_stats_total_commits", "commit_stats_total_committers","commit_stats_mean_commits", "commit_stats_dds"]},
+        {"createRatioColumn":["stargazers_count","commit_stats_total_committers","ratioStargazersVsCommitters"]},
+        {"createRatioColumn":["stargazers_count","forks_count","ratioStargazersVsForks"]},
+        {"createRatioColumn":["subscribers_count","commit_stats_total_committers","ratioWatchersVsCommitters"]},
         //// sample or demo or example cohorts ////
         {"createCohortStringListPossibleValues":["full_name", "cohort_sample_fullName", ["sample","demo","example","tutorial"]]},
         {"createCohortStringListPossibleValues":["description", "cohort_sample_Description", ["sample","demo","example","tutorial"]]},
         {"createCohortIfEitherColumnIsTrue":["cohort_sample_fullName", "cohort_sample_Description", "cohort_sample"]},
+      ///// NEED FUNCTION THAT RETURNS TURE IF GROUP OF KEY IS ALL FALSE
         //// committer community size cohorts ////
-        {"createCohortNumericalCol":["commit_stats.total_committers", "cohort_committers_NonZero", 0.2,100000]},
-        {"createCohortNumericalCol":["commit_stats.total_committers", "cohort_committers_1-20", 0.2,20.5]},
-        {"createCohortNumericalCol":["commit_stats.total_committers", "cohort_committers_20-100", 20.5,100.5]},
-        {"createCohortNumericalCol":["commit_stats.total_committers", "cohort_committers_100plus", 100.5,10000000]},
+        // {"createCohortNumericalCol":["commit_stats_total_committers", "cohort_committers_Null", 0,0.9]},
+        // {"createCohortNumericalCol":["commit_stats_total_committers", "cohort_committers_NonZero", 0.2,100000]},
+        {"createCohortTestForNullEmpty":[["commit_stats_total_committers"], "cohort_committers_missingData"]},
+        {"createCohortNumericalCol":["commit_stats_total_committers", "cohort_committers_1-20", 0.2,20.5]},
+        {"createCohortNumericalCol":["commit_stats_total_committers", "cohort_committers_20-100", 20.5,100.5]},
+        {"createCohortNumericalCol":["commit_stats_total_committers", "cohort_committers_100plus", 100.5,10000000]},
         //// age cohorts ////
+        {"createCohortTestForNullEmpty":[["age_in_days"], "cohort_age_missingData"]},
         {"createCohortNumericalCol":["age_in_days", "cohort_age_baby30d", 0,30]},
         {"createCohortNumericalCol":["age_in_days", "cohort_age_toddler30to90d", 30,90]},
         {"createCohortNumericalCol":["age_in_days", "cohort_age_teen90to365d", 90,365]},
         {"createCohortNumericalCol":["age_in_days", "cohort_age_adult365to1095d", 365,1095]},
         {"createCohortNumericalCol":["age_in_days", "cohort_age_seniorMore1095d", 1095,100000000000000]},
-        ////
+        //// Nadia cohorts ////
+      {"createCohortTestForNullEmpty":[["commit_stats_total_committers"], "cohort_Nadia_missingData"]},
+      {"createCohortNumericalCol":["commit_stats_total_committers", "cohort_Nadia_mid", 6,60]},
+        {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_club", 60,1000000, "ratioStargazersVsCommitters", 0,2]},
+      {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_federation", 60,1000000,  "ratioStargazersVsCommitters", 2,1000000000]},
+      {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_stadium", 0.2, 6, "stargazers_count", 100,100000000]},
+      {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_toy", 0.2,6, "stargazers_count", 0,100]},
+      
     ])
 }
 
@@ -331,3 +401,23 @@ function takeOffPrefix(data){
 }
 
 
+export function countsCohortGroup(data, cohortGroupArray){
+    const numberOfCohortGroups = cohortGroupArray.length
+    const modifiedData = data.map((item) => {
+        const trueValues = {};
+        for (const key in item) {
+            var numberOfCohortGroupsCovered = 0;
+            for (const substring of cohortGroupArray) {
+                if (key.includes(substring) && item[key] === true) {
+                    trueValues[`${substring}_trueValueInGroup`] = key;
+                    numberOfCohortGroupsCovered += 1;
+                    if(  numberOfCohortGroupsCovered === numberOfCohortGroups){
+                        break;
+                    }    
+                }
+            }
+        }
+        return Object.assign({}, item, trueValues);
+    });
+    return modifiedData;
+}
