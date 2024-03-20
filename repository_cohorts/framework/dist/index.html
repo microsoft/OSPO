@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Repository Cohorts | framework</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.css">
+<link rel="modulepreload" href="./_observablehq/client.js">
+<link rel="modulepreload" href="./_observablehq/runtime.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.js">
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/tabulator-tables/+esm">
+<link rel="modulepreload" href="./_observablehq/stdlib/duckdb.js">
+<link rel="modulepreload" href="./_npm/@duckdb/duckdb-wasm@1.28.0/+esm.js">
+<link rel="modulepreload" href="./_import/components/cohorts.fbbeedb5.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/+esm.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.14/+esm.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/+esm.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/+esm.js">
+<link rel="modulepreload" href="./_npm/apache-arrow@15.0.2/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/+esm.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/+esm.js">
+<link rel="modulepreload" href="./_npm/tslib@2.6.2/+esm.js">
+<link rel="modulepreload" href="./_npm/flatbuffers@23.5.26/+esm.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/+esm.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/+esm.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/+esm.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/+esm.js">
+<script type="module">
+
+import {define} from "./_observablehq/client.js";
+import {registerFile} from "./_observablehq/stdlib.js";
+
+registerFile("./data/microsoft_repos_public_20240319.csv", {"name":"./data/microsoft_repos_public_20240319.csv","mimeType":"text/csv","path":"./_file/data/microsoft_repos_public_20240319.2fba835b.csv"});
+
+define({id: "67c6cfb5", inputs: ["FileAttachment"], outputs: ["Tabulator","sql","duckdb","DuckDBClient","repos"], body: async (FileAttachment) => {
+const [{default: Tabulator}, {sql}, duckdb, {DuckDBClient}] = await Promise.all([import("https://cdn.jsdelivr.net/npm/tabulator-tables/+esm"), import("./_observablehq/stdlib/duckdb.js"), import("./_npm/@duckdb/duckdb-wasm@1.28.0/+esm.js"), import("./_observablehq/stdlib/duckdb.js")]);
+// IMPORT LIBRARIES
+
+
+
+
+// IMPORT DATA 
+const repos = FileAttachment("./data/microsoft_repos_public_20240319.csv").csv();
+
+return {Tabulator,sql,duckdb,DuckDBClient,repos};
+}});
+
+define({id: "f12da7f0", inputs: ["display","repos"], body: (display,repos) => {
+display(repos)
+}});
+
+define({id: "187024fe", inputs: ["Plot","d3","repos"], outputs: ["color","colorLanguage"], body: (Plot,d3,repos) => {
+//  Data utilities for plotting
+const color = Plot.scale({
+  color: {
+    type: "categorical",
+    domain: d3.groupSort(repos, (D) => -D.length, (d) => d.owner).filter((d) => d !== "Other"),
+    unknown: "var(--theme-foreground-muted)"
+  }
+});
+
+const colorLanguage = Plot.scale({
+  color: {
+    type: "categorical",
+    domain: d3.groupSort(repos, (D) => -D.length, (d) => d.language).filter((d) => d !== "Other"),
+    unknown: "var(--theme-foreground-muted)"
+  }
+});
+return {color,colorLanguage};
+}});
+
+define({id: "d4573328", inputs: ["repos"], outputs: ["renameKeys","changeKeyNamesObject","reposReName"], body: async (repos) => {
+const {renameKeys} = await import("./_import/components/cohorts.fbbeedb5.js");
+// rename column names
+
+const changeKeyNamesObject = {
+    "FullName": "full_name",
+    "OwnerLogin":"owner" ,
+    "Size":"size" ,
+    "StargazersCount": "stargazers_count" ,
+    "OpenIssuesCount": "open_issues_count",
+    "ForksCount":"forks_count" ,
+    "SubscribersCount":"subscribers_count",
+    "Homepage": "homepage" ,
+    "HasIssues": "has_issues",
+    "count_unique_contributor_Ids": "commit_stats_total_committers",
+    "Description": "description",
+    "UpdatedAt":"updated_at" ,
+    "CreatedAt":"created_at"
+}
+
+const reposReName = renameKeys(repos, changeKeyNamesObject)
+
+return {renameKeys,changeKeyNamesObject,reposReName};
+}});
+
+define({id: "809da521", inputs: ["display","reposReName"], body: (display,reposReName) => {
+display(reposReName )
+}});
+
+define({id: "c8980d44", inputs: ["reposReName"], outputs: ["countsCohortGroup","createCohortColumns","repos_cohort_processed_BaseCohorts","repos_cohort_processedSemi","dataCohortsWithTrueInGroup"], body: async (reposReName) => {
+const [{countsCohortGroup}, {createCohortColumns}, {repos_cohort_processed_BaseCohorts}] = await Promise.all([import("./_import/components/cohorts.fbbeedb5.js"), import("./_import/components/cohorts.fbbeedb5.js"), import("./_import/components/cohorts.fbbeedb5.js")]);
+
+// CREATING COHORTS 
+
+
+
+const repos_cohort_processedSemi = repos_cohort_processed_BaseCohorts(reposReName )
+
+const dataCohortsWithTrueInGroup = countsCohortGroup(repos_cohort_processedSemi,[ "cohort_sample","cohort_age","cohort_committers","cohort_Nadia"])
+
+
+return {countsCohortGroup,createCohortColumns,repos_cohort_processed_BaseCohorts,repos_cohort_processedSemi,dataCohortsWithTrueInGroup};
+}});
+
+define({id: "fcd0ec4a", inputs: ["display","dataCohortsWithTrueInGroup"], body: (display,dataCohortsWithTrueInGroup) => {
+display(dataCohortsWithTrueInGroup)
+}});
+
+define({id: "7e8f1c87", inputs: ["view","Inputs","dataCohortsWithTrueInGroup"], outputs: ["table_all2"], body: (view,Inputs,dataCohortsWithTrueInGroup) => {
+const table_all2 = 
+  view(Inputs.table(dataCohortsWithTrueInGroup, {
+   rows:16
+  }))
+
+return {table_all2};
+}});
+
+define({id: "6461b8d0", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+display(await(
+Plot.plot({
+  title: "Cohort analysis age",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 40,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barY(
+  dataCohortsWithTrueInGroup,
+  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", lineWidth: 74, marginBottom: 40})
+)
+  ]
+})
+
+))
+}});
+
+define({id: "63d830b9", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+display(await(
+Plot.plot({
+  title: "Cohort analysis age vs. committers size",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 40,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barY(
+  dataCohortsWithTrueInGroup,
+  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", fill: "cohort_committers_trueValueInGroup", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
+)
+  ]
+})
+))
+}});
+
+define({id: "e4e98f2f", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+display(await(
+Plot.plot({
+  title: "Cohort analysis cohort_Nadia vs. age in days",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 40,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barY(
+  dataCohortsWithTrueInGroup,
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "age_in_days", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
+)
+  ]
+})
+))
+}});
+
+define({id: "1ed2f291", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+display(await(
+Plot.plot({
+  title: "Nadia community cohorts vs. days since last update",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 40,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barY(
+  dataCohortsWithTrueInGroup,
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40})
+)
+  ]
+})
+))
+}});
+
+define({id: "d51b2e2b", inputs: ["DuckDBClient","dataCohortsWithTrueInGroup"], outputs: ["dbRepos"], body: (DuckDBClient,dataCohortsWithTrueInGroup) => {
+const dbRepos = DuckDBClient.of({reposSQL: dataCohortsWithTrueInGroup});
+
+// need to create a const for organizationList
+
+return {dbRepos};
+}});
+
+define({id: "f2921f95", inputs: ["view","Inputs"], outputs: ["sizeMin","sizeMax","stargazer_count_min","fork_count_min","max_days_since_updated","min_days_since_updated","archived","limitNumberRowsToShow"], body: (view,Inputs) => {
+//const organization = view(Inputs.select(organizationList, {multiple: true, label: "select organizations"}))
+const sizeMin = view(Inputs.range([0, 5000000], {label: "greater than this size in bytes",value:1000}));
+const sizeMax = view(Inputs.range([10, 100000000], {label: "less than this size in bytes",value:5000000}));
+const stargazer_count_min = view(Inputs.range([0, 10000], {label: "more than this many stargazers",value:20}));
+const fork_count_min = view(Inputs.range([0, 4000], {label: "more than this many forks",value:5}));
+const max_days_since_updated = view(Inputs.range([0, 10000], {label: "less than this many days since updated",value:30}));
+const min_days_since_updated = view(Inputs.range([0, 10000], {label: "more than this many forks",value:0}));
+const archived = view(Inputs.select([null].concat(["true","false"]), {label: "archived", value:"false"}));
+const limitNumberRowsToShow = view(Inputs.range([0, 15000], {label: "max number of rows to show",value:200,step:1}));
+console.log("archived ", archived )
+return {sizeMin,sizeMax,stargazer_count_min,fork_count_min,max_days_since_updated,min_days_since_updated,archived,limitNumberRowsToShow};
+}});
+
+define({id: "43c522ad", inputs: ["dbRepos","sizeMin","sizeMax","stargazer_count_min","max_days_since_updated","min_days_since_updated","archived","limitNumberRowsToShow"], outputs: ["dbRepos_FilteredBySQL"], body: (dbRepos,sizeMin,sizeMax,stargazer_count_min,max_days_since_updated,min_days_since_updated,archived,limitNumberRowsToShow) => {
+const dbRepos_FilteredBySQL = dbRepos.sql`SELECT * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}`
+
+//console.log("dbRepos_FilteredBySQL",dbRepos_FilteredBySQL)
+
+//const lengthOfdbRepos_FilteredBySQL = await dbRepos_FilteredBySQL.length
+//display(lengthOfdbRepos_FilteredBySQL)
+return {dbRepos_FilteredBySQL};
+}});
+
+define({id: "78ee441f", inputs: ["view","Inputs","dbRepos_FilteredBySQL"], outputs: ["table_SQLunfiltered"], body: (view,Inputs,dbRepos_FilteredBySQL) => {
+const table_SQLunfiltered = 
+  view(Inputs.table(dbRepos_FilteredBySQL))
+
+return {table_SQLunfiltered};
+}});
+
+define({id: "03d28ae5", inputs: ["Plot","dbRepos_FilteredBySQL","display"], body: async (Plot,dbRepos_FilteredBySQL,display) => {
+display(await(
+Plot.plot({
+    title: "Nadia community cohorts vs. Organization",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 140,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barX(
+      dbRepos_FilteredBySQL,
+      Plot.groupY(
+        { x: "count" },
+        { fill: "cohort_Nadia_trueValueInGroup", y: "owner", title: "full_name",  sort: { x: "x", reverse: true }}
+      )
+    )
+  ]
+})
+))
+}});
+
+define({id: "376ba75c", inputs: ["Plot","dbRepos_FilteredBySQL","display"], body: async (Plot,dbRepos_FilteredBySQL,display) => {
+display(await(
+Plot.plot({
+  title: "Nadia community cohorts vs. days since last update",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 40,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barY(
+  dbRepos_FilteredBySQL,
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40})
+)
+  ]
+})
+))
+}});
+
+</script>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<style>
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--sans-serif);
+  margin: 4rem 0 8rem;
+  text-wrap: balance;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 2rem 0;
+  max-width: none;
+  font-size: 14vw;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(30deg, var(--theme-foreground-focus), currentColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h2 {
+  margin: 0;
+  max-width: 34em;
+  font-size: 20px;
+  font-style: initial;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--theme-foreground-muted);
+}
+
+@media (min-width: 640px) {
+  .hero h1 {
+    font-size: 90px;
+  }
+}
+
+p {
+  max-width:1200px;
+}
+
+</style>
+<h1 id="repository-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#repository-cohorts">Repository Cohorts</a></h1>
+<h2 id="what-is-this-page%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-is-this-page%3F">What is this page?</a></h2>
+<p><em>This page is a very brief demonstration of the concept of repository cohorts.</em> It is designed
+to act as a companion to a talk that will be given at Open Source Summit North America 2024
+titled
+<a href="https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no">"Repository Cohorts: How OSPO's Can Programmatically Categorize All Their Repositories"</a>.</p>
+<h2 id="what-to-know-about-the-data-being-shown-here%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-to-know-about-the-data-being-shown-here%3F">What to know about the data being shown here?</a></h2>
+<p>Data on this page is loaded from a CSV file and is not updated post 2024-03-19.
+It is from a fixed snapshot in time that is now out of date.</p>
+<p>It shows data from from real repositories.
+These repositories are all from GitHub organizations mointored by Microsoft either owns or has a hand in the
+governance of and therefore collects data on.
+All the data shown is public data that we collect and harvest via the GitHub API, just like anyone else could.</p>
+<div id="cell-67c6cfb5" class="observablehq observablehq--block"></div>
+<h2 id="data-transformation-steps" tabindex="-1"><a class="observablehq-header-anchor" href="#data-transformation-steps">Data transformation steps</a></h2>
+<p>On this demo page all repository cohorts are calculated with the JavaScript code found in the same
+source repository that builds this GitHub pages page.
+Internally, we use <a href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/">Kusto Query Language</a>
+to generate the cohort columns. The logic is identical.</p>
+<p>We load the data from CSV through Observable framework's file attachment process.</p>
+<pre><code>const repos = FileAttachment("./data/microsoft_repos_public_20240319.csv)").csv();
+</code></pre>
+<p>Unprocessesd raw data</p>
+<div id="cell-f12da7f0" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-187024fe" class="observablehq observablehq--block"></div>
+<div id="cell-d4573328" class="observablehq observablehq--block"></div>
+<p>Next, keys are renamed to mirror ecosyste.ms key names, so this example code can be reused more easily</p>
+<div id="cell-809da521" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-c8980d44" class="observablehq observablehq--block"></div>
+<p>Calculated columns are created, including cohort columns. These are added on to the existing columns.</p>
+<div id="cell-fcd0ec4a" class="observablehq observablehq--block observablehq--loading"></div>
+<h3 id="table-showing-all-repositories-with-calculated-cohort-columns." tabindex="-1"><a class="observablehq-header-anchor" href="#table-showing-all-repositories-with-calculated-cohort-columns.">Table showing all repositories with calculated cohort columns.</a></h3>
+<p>Scroll to the far right to see cohort columns</p>
+<div id="cell-7e8f1c87" class="observablehq observablehq--block"></div>
+<hr>
+<h2 id="what-are-repository-cohorts-and-what-problem-do-they-solve%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-are-repository-cohorts-and-what-problem-do-they-solve%3F">What are repository cohorts and what problem do they solve?</a></h2>
+<h3 id="no-wants-to-read-3%2C000-readmes" tabindex="-1"><a class="observablehq-header-anchor" href="#no-wants-to-read-3%2C000-readmes">No wants to read 3,000 READMEs</a></h3>
+<p>OSPOs often have to manage, enforce compliance, and recommend best practice for
+many hundreds or thousands of repositories.
+This page shows over 10,000 repositories. That is way too many to read, so
+there's a strong tendancy for OSPOs to treat every repository the same and make
+policy and best practive recommendations for an average repository or more
+accurately an average top of mind repository.</p>
+<h3 id="metadata-but-make-it-more-easily-reusable" tabindex="-1"><a class="observablehq-header-anchor" href="#metadata-but-make-it-more-easily-reusable">Metadata but make it more easily reusable</a></h3>
+<p>Metadata reduces the need to read thousands of repositories by letting OSPO's
+understand repositories according to their easily measurable characteristics.</p>
+<p>This typically requiress OSPOs, or a centralized data team that OSPO is working with, to collect
+code platform metadata (GitHub, Azure DevOps, etc.) on a reoccurring basis and then
+provide it for reuse to others internally from a database.</p>
+<p>Working with raw repository metadata fields, however, requires thought about how to combine
+raw data, where to make thresholds, etc. If this is done again and again for each potential
+use case of the metadata, it imposes time and cognitive burdens that limit how often
+the metadata is used to make data informed decisions. Additioanally, small differences
+in where to make a cut off for highly forked repositroies versus normally forked repositories
+can lead to inefficiencies in applying the learnings from one project to another project.</p>
+<p>Repository cohorts attempts to solve these problems may being standardized labels for repostories.
+They have meanings that are easy to remember and can be reused with very little effort as they become
+additional columns in the repository metadata table.</p>
+<p>Repository cohorts are either true or false. There can be groups of cohorts that split a dimension.
+For exampple, there can be cohorts of repository age of baby, toddler, teenager, adult, and senior.
+Each repository, or row in the table, will be true for only one of these cohorts and false for all the
+other cohorts in the group. Additionally, there will be a column that has the column name of the
+cohort that is true.</p>
+<h3 id="benefits-of-repository-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#benefits-of-repository-cohorts">Benefits of repository cohorts</a></h3>
+<p>These characteristics of repository cohorts makes it easier to generate counts of cohorts from a single cohort group
+for any filtered group of repositories. Additionally, you can combine cohorts using
+simple AND OR statements without having to remember thresholds or rewrite extensive queries.
+The idea is that this makes it faster and easier to gain insights into the communities building each repository
+across thousands of repositories compared with reading READMEs &amp; issues or working with raw metadata fields.</p>
+<hr>
+<h2 id="initial-visualizations-of-main-repository-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#initial-visualizations-of-main-repository-cohorts">Initial visualizations of main repository cohorts</a></h2>
+<div id="cell-6461b8d0" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-63d830b9" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-e4e98f2f" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-1ed2f291" class="observablehq observablehq--block observablehq--loading"></div>
+<hr>
+<h2 id="sql-filtering-on-table-and-plots-below" tabindex="-1"><a class="observablehq-header-anchor" href="#sql-filtering-on-table-and-plots-below">SQL filtering on table and plots below</a></h2>
+<div id="cell-d51b2e2b" class="observablehq observablehq--block"></div>
+<div id="cell-f2921f95" class="observablehq observablehq--block"></div>
+<pre><code>SELECT * FROM reposSQL WHERE size &gt; ${sizeMin} AND size &lt; ${sizeMax} AND stargazers_count &gt; ${stargazer_count_min} AND daysSinceUpdated &lt; ${max_days_since_updated} AND daysSinceUpdated &gt; ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}
+</code></pre>
+<div id="cell-43c522ad" class="observablehq observablehq--block"></div>
+<div id="cell-78ee441f" class="observablehq observablehq--block"></div>
+<div id="cell-03d28ae5" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-376ba75c" class="observablehq observablehq--block observablehq--loading"></div>
+<h3 id="what-is-a-nadia-cohort%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-is-a-nadia-cohort%3F">What is a Nadia Cohort?</a></h3>
+<p>The Nadia cohort group attemps to capture a description of community user / contributor patterns that reveal something about the structure of a community that builds a repository. This idea comes from <a href="https://nadia.xyz/">Nadia Asparouhova's</a> book <a href="https://press.stripe.com/working-in-public">"Working in Public: The Making and Maintenance of Open Source Software"</a> Strip Matter Incorporated, 2020, pp59-65.
+where the categories of open source projects as being federations, clubs, stadiums, or toys are presented. No exact metrics are given
+for defining the boundaries, but rather they are described using a matrix of high or low contributor growth and high or low user growth.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HIGH USER GROWTH</th>
+<th>LOW USER GROWTH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HIGH CONTRIBUTOR GROWTH</strong></td>
+<td>Federations</td>
+<td>Clubs</td>
+</tr>
+<tr>
+<td><strong>LOW CONTRIBUTOR GROWTH</strong></td>
+<td>Stadiums</td>
+<td>Toys</td>
+</tr>
+</tbody>
+</table>
+<p>For repository cohorts, we have taken these ideas and modified them to work with easily available repository metadata.
+Additionally, we have adding a category of "middle" or "mid" repositories that are not quite one of those four but some where
+in between them. We also have a "missing data" Nadia cohort for when we lack the repository metadata needed.</p>
+<h4 id="metadata-thresholds-or-nadia-community-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#metadata-thresholds-or-nadia-community-cohorts">Metadata thresholds or Nadia community cohorts</a></h4>
+<p>The metadata thresholds used for the Nadis cohort group are based on a combination of
+community size, stargazer count, and ratio of stargazers vs. commiter count.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ratioStargazersVsCommitters &gt; 2</th>
+<th>ratioStargazersVsCommitters &lt; 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>&gt; 60 contributors</strong></td>
+<td>Federation cohort</td>
+<td>Club cohort</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>6 &lt; contributors &lt; 60</strong></td>
+<td>Mid cohort</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>stargazers_count &gt; 100</th>
+<th>stargazers_count &lt; 100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>&lt; 6 contributors</strong></td>
+<td>Stadium cohort</td>
+<td>Toy cohort</td>
+</tr>
+</tbody>
+</table>
+<p>These thresholds seem to work well for Microsoft repositories. We would be interested in learning what
+other organizations use if they model similar cohorts.</p>
+<p>To describe them in plain english:</p>
+<ol>
+<li><strong>Federations</strong> are built by a large community with an even large silent group of users and watchers.</li>
+<li><strong>Clubs</strong> are built but a large community with the ratio of silent users and watches being closer to the size of the contributor community.</li>
+<li><strong>Stadium</strong> is built by a small community with a larger proportion of silent users and watchers.</li>
+<li><strong>Toy</strong> is built by a small community with a small number of silent users and watchers.</li>
+<li><strong>mid</strong> is built by a moderately sized community.</li>
+</ol>
+</main>
+<footer id="observablehq-footer">
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-03-20T11:47:50">Mar 20, 2024</a>.</div>
+</footer>
+</div>
