@@ -42,16 +42,29 @@ toc: false
   }
 }
 
+p {
+  max-width:1200px;
+}
+
 </style>
 
 
-# !!! THIS PAGE IS IN PROGRESS !!!
+# Repository Cohorts
 
-### Data from a fixed point in time across various Microsoft run GitHub Organizatins 
+## What is this page?
+*This page is a very brief demonstration of the concept of repository cohorts.* It is designed 
+to act as a companion to a talk that will be given at Open Source Summit North America 2024 
+titled 
+["Repository Cohorts: How OSPO's Can Programmatically Categorize All Their Repositories"](https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no).
 
-Data is loaded from a CSV file and is not updated post 2024-03-19.
+## What to know about the data being shown here?
+Data on this page is loaded from a CSV file and is not updated post 2024-03-19. 
+It is from a fixed snapshot in time that is now out of date.
 
-This is provided as an example of the repository cohorts concept on real data.
+It shows data from from real repositories. 
+These repositories are all from GitHub organizations mointored by Microsoft either owns or has a hand in the 
+governance of and therefore collects data on.
+All the data shown is public data that we collect and harvest via the GitHub API, just like anyone else could.
 
 
 ```js
@@ -68,8 +81,14 @@ import {DuckDBClient} from "npm:@observablehq/duckdb";
 const repos = FileAttachment("./data/microsoft_repos_public_20240319.csv").csv();
 
 ```
-### Data transformation steps
+## Data transformation steps
 
+On this demo page all repository cohorts are calculated with the JavaScript code found in the same 
+source repository that builds this GitHub pages page. 
+Internally, we use [Kusto Query Language](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/)
+to generate the cohort columns. The logic is identical.
+
+We load the data from CSV through Observable framework's file attachment process.
 ```
 const repos = FileAttachment("./data/microsoft_repos_public_20240319.csv)").csv();
 ```
@@ -125,7 +144,7 @@ const reposReName = renameKeys(repos, changeKeyNamesObject)
 
 ```
 
-Renamed keys to mirror ecosyste.ms names so code can be reused more easily
+Next, keys are renamed to mirror ecosyste.ms key names, so this example code can be reused more easily
 
 ```js
 display(reposReName )
@@ -148,13 +167,17 @@ const dataCohortsWithTrueInGroup = countsCohortGroup(repos_cohort_processedSemi,
 
 ```
 
-Processed data with cohorts calculated
+Calculated columns are created, including cohort columns. These are added on to the existing columns.
 
 ```js
 
 display(dataCohortsWithTrueInGroup)
+```
 
+### Table showing all repositories with calculated cohort columns.
+Scroll to the far right to see cohort columns
 
+```js
 const table_all2 = 
   view(Inputs.table(dataCohortsWithTrueInGroup, {
    rows:16
@@ -162,8 +185,53 @@ const table_all2 =
 
 ```
 --------------------------
+## What are repository cohorts and what problem do they solve?
 
-### Initial visualizations of main repository cohorts
+### No wants to read 3,000 READMEs
+
+OSPOs often have to manage, enforce compliance, and recommend best practice for 
+many hundreds or thousands of repositories. 
+This page shows over 10,000 repositories. That is way too many to read, so 
+there's a strong tendancy for OSPOs to treat every repository the same and make 
+policy and best practive recommendations for an average repository or more 
+accurately an average top of mind repository.
+
+### Metadata but make it more easily reusable
+
+Metadata reduces the need to read thousands of repositories by letting OSPO's 
+understand repositories according to their easily measurable characteristics.
+
+This typically requiress OSPOs, or a centralized data team that OSPO is working with, to collect 
+code platform metadata (GitHub, Azure DevOps, etc.) on a reoccurring basis and then 
+provide it for reuse to others internally from a database.
+
+Working with raw repository metadata fields, however, requires thought about how to combine 
+raw data, where to make thresholds, etc. If this is done again and again for each potential 
+use case of the metadata, it imposes time and cognitive burdens that limit how often 
+the metadata is used to make data informed decisions. Additioanally, small differences 
+in where to make a cut off for highly forked repositroies versus normally forked repositories
+can lead to inefficiencies in applying the learnings from one project to another project.
+
+Repository cohorts attempts to solve these problems may being standardized labels for repostories. 
+They have meanings that are easy to remember and can be reused with very little effort as they become 
+additional columns in the repository metadata table.
+
+Repository cohorts are either true or false. There can be groups of cohorts that split a dimension. 
+For exampple, there can be cohorts of repository age of baby, toddler, teenager, adult, and senior. 
+Each repository, or row in the table, will be true for only one of these cohorts and false for all the 
+other cohorts in the group. Additionally, there will be a column that has the column name of the 
+cohort that is true. 
+
+### Benefits of repository cohorts
+These characteristics of repository cohorts makes it easier to generate counts of cohorts from a single cohort group
+for any filtered group of repositories. Additionally, you can combine cohorts using 
+simple AND OR statements without having to remember thresholds or rewrite extensive queries.
+The idea is that this makes it faster and easier to gain insights into the communities building each repository
+across thousands of repositories compared with reading READMEs & issues or working with raw metadata fields. 
+
+--------------------------
+
+## Initial visualizations of main repository cohorts
 
 ```js
 
@@ -199,7 +267,7 @@ Plot.plot({
   marks: [
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", fill: "cohort_committers_trueValueInGroup", lineWidth: 74, marginBottom: 40})
+  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", fill: "cohort_committers_trueValueInGroup", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
@@ -218,7 +286,7 @@ Plot.plot({
   marks: [
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "age_in_days", lineWidth: 74, marginBottom: 40})
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "age_in_days", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
@@ -250,26 +318,39 @@ Plot.plot({
 
 const dbRepos = DuckDBClient.of({reposSQL: dataCohortsWithTrueInGroup});
 
+// need to create a const for organizationList
+
 ```
 
 ```js
+
+//const organization = view(Inputs.select(organizationList, {multiple: true, label: "select organizations"}))
 const sizeMin = view(Inputs.range([0, 5000000], {label: "greater than this size in bytes",value:1000}));
+const sizeMax = view(Inputs.range([10, 100000000], {label: "less than this size in bytes",value:5000000}));
 const stargazer_count_min = view(Inputs.range([0, 10000], {label: "more than this many stargazers",value:20}));
 const fork_count_min = view(Inputs.range([0, 4000], {label: "more than this many forks",value:5}));
+const max_days_since_updated = view(Inputs.range([0, 10000], {label: "less than this many days since updated",value:30}));
+const min_days_since_updated = view(Inputs.range([0, 10000], {label: "more than this many forks",value:0}));
+const archived = view(Inputs.select([null].concat(["true","false"]), {label: "archived", value:"false"}));
 const limitNumberRowsToShow = view(Inputs.range([0, 15000], {label: "max number of rows to show",value:200,step:1}));
+console.log("archived ", archived )
 ```
 
 ```
-SELECT * FROM reposSQL WHERE size > ${sizeMin} AND stargazers_count > ${stargazer_count_min} LIMIT ${limitNumberRowsToShow}
-```
-
-```js
-const dbRepos_FilteredBySQL = dbRepos.sql`SELECT * FROM reposSQL WHERE forks_count > ${fork_count_min} AND size > ${sizeMin} AND stargazers_count > ${stargazer_count_min} LIMIT ${limitNumberRowsToShow}`
-
+SELECT * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}
 ```
 
 ```js
-display(dbRepos_FilteredBySQL.length)
+
+const dbRepos_FilteredBySQL = dbRepos.sql`SELECT * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}`
+
+//console.log("dbRepos_FilteredBySQL",dbRepos_FilteredBySQL)
+
+//const lengthOfdbRepos_FilteredBySQL = await dbRepos_FilteredBySQL.length
+//display(lengthOfdbRepos_FilteredBySQL)
+```
+
+```js
 
 const table_SQLunfiltered = 
   view(Inputs.table(dbRepos_FilteredBySQL))
@@ -291,42 +372,73 @@ Plot.plot({
       dbRepos_FilteredBySQL,
       Plot.groupY(
         { x: "count" },
-        { fill: "cohort_Nadia_trueValueInGroup", y: "owner", title: "full_name", sort: { y: "x", reverse: true } }
+        { fill: "cohort_Nadia_trueValueInGroup", y: "owner", title: "full_name",  sort: { x: "x", reverse: true }}
       )
     )
   ]
 })
 ```
 
+
+```js
+Plot.plot({
+  title: "Nadia community cohorts vs. days since last update",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 40,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barY(
+  dbRepos_FilteredBySQL,
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40})
+)
+  ]
+})
+```
+
+
 ### What is a Nadia Cohort?
 
-This is a cohort group that attemps to capture a description of community size and patterns that is too abstract to think about otherwise when in pure raw numbers. 
+The Nadia cohort group attemps to capture a description of community user / contributor patterns that reveal something about the structure of a community that builds a repository. This idea comes from [Nadia Asparouhova's](https://nadia.xyz/) book ["Working in Public: The Making and Maintenance of Open Source Software"](https://press.stripe.com/working-in-public) Strip Matter Incorporated, 2020, pp59-65.
+where the categories of open source projects as being federations, clubs, stadiums, or toys are presented. No exact metrics are given 
+for defining the boundaries, but rather they are described using a matrix of high or low contributor growth and high or low user growth.
 
-```
-|||PLACEHOLDER FOR EXPLANATORY TEXT|||
-```
-1. Federation
+|                              | HIGH USER GROWTH | LOW USER GROWTH |
+|------------------------------|------------------|-----------------|
+| **HIGH CONTRIBUTOR GROWTH**  | Federations      | Clubs           |
+| **LOW CONTRIBUTOR GROWTH**   | Stadiums         | Toys            |  
 
-2. Club
+For repository cohorts, we have taken these ideas and modified them to work with easily available repository metadata.
+Additionally, we have adding a category of "middle" or "mid" repositories that are not quite one of those four but some where 
+in between them. We also have a "missing data" Nadia cohort for when we lack the repository metadata needed.
 
-3. Stadium
-
-4. Toy
-
-5. The middle
-
-6. Repositories missing data so a cohort of this grouping can not be calculated
+#### Metadata thresholds or Nadia community cohorts
+The metadata thresholds used for the Nadis cohort group are based on a combination of 
+community size, stargazer count, and ratio of stargazers vs. commiter count.
 
 
-#### Thresholds used to group repositories into Nadia comunity cohorts
-```
-|||PLACEHOLDER for explaining the code below|||
-```
-```
-      {"createCohortTestForNullEmpty":[["commit_stats_total_committers"], "cohort_Nadia_missingData"]},
-      {"createCohortNumericalCol":["commit_stats_total_committers", "cohort_Nadia_mid", 6,60]},
-        {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_club", 60,1000000, "ratioStargazersVsCommitters", 0,2]},
-      {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_federation", 60,1000000,  "ratioStargazersVsCommitters", 2,1000000000]},
-      {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_stadium", 0.2, 6, "stargazers_count", 100,100000000]},
-      {"createCohortNumericalColTwoTests":["commit_stats_total_committers", "cohort_Nadia_toy", 0.2,6, "stargazers_count", 0,100]},
-```
+|                              | ratioStargazersVsCommitters > 2 | ratioStargazersVsCommitters < 2 |
+|------------------------------|------------------|-----------------|
+| **> 60 contributors**       | Federation cohort      | Club cohort         |
+
+|       |    | |
+|------------------------------|------------------|-----------------|
+| **6 < contributors < 60**      | Mid cohort   |  |
+
+|                              | stargazers_count > 100 | stargazers_count < 100 |
+|------------------------------|------------------|-----------------|
+| **< 6 contributors**       | Stadium cohort             | Toy cohort                  |  
+
+These thresholds seem to work well for Microsoft repositories. We would be interested in learning what 
+other organizations use if they model similar cohorts.
+
+To describe them in plain english: 
+1. **Federations** are built by a large community with an even large silent group of users and watchers.
+2. **Clubs** are built but a large community with the ratio of silent users and watches being closer to the size of the contributor community. 
+3. **Stadium** is built by a small community with a larger proportion of silent users and watchers.
+4. **Toy** is built by a small community with a small number of silent users and watchers. 
+5. **mid** is built by a moderately sized community.
+
