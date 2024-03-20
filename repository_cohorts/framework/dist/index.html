@@ -128,7 +128,11 @@ const reposReName = renameKeys(repos, changeKeyNamesObject)
 return {renameKeys,changeKeyNamesObject,reposReName};
 }});
 
-define({id: "809da521", inputs: ["display","reposReName"], body: (display,reposReName) => {
+define({id: "60c540e3", inputs: ["display","changeKeyNamesObject"], body: (display,changeKeyNamesObject) => {
+display(changeKeyNamesObject)
+}});
+
+define({id: "46a3ba72", inputs: ["display","reposReName"], body: (display,reposReName) => {
 display(reposReName )
 }});
 
@@ -160,7 +164,7 @@ const table_all2 =
 return {table_all2};
 }});
 
-define({id: "6461b8d0", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+define({id: "f9a44dbb", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
 display(await(
 Plot.plot({
   title: "Cohort analysis age",
@@ -174,7 +178,7 @@ Plot.plot({
   marks: [
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", lineWidth: 74, marginBottom: 40})
+  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", title: "full_name",lineWidth: 74, marginBottom: 40})
 )
   ]
 })
@@ -182,7 +186,7 @@ Plot.plot({
 ))
 }});
 
-define({id: "63d830b9", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+define({id: "d8edb208", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
 display(await(
 Plot.plot({
   title: "Cohort analysis age vs. committers size",
@@ -196,14 +200,14 @@ Plot.plot({
   marks: [
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", fill: "cohort_committers_trueValueInGroup", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
+  Plot.groupX({ y: "count" }, { x: "cohort_age_trueValueInGroup", fill: "cohort_committers_trueValueInGroup", title: "full_name", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
 ))
 }});
 
-define({id: "e4e98f2f", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+define({id: "3d2b9358", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
 display(await(
 Plot.plot({
   title: "Cohort analysis cohort_Nadia vs. age in days",
@@ -217,14 +221,14 @@ Plot.plot({
   marks: [
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "age_in_days", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "age_in_days" , title: "full_name",  lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
 ))
 }});
 
-define({id: "1ed2f291", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+define({id: "b6b4cb72", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
 display(await(
 Plot.plot({
   title: "Nadia community cohorts vs. days since last update",
@@ -238,7 +242,7 @@ Plot.plot({
   marks: [
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40})
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", title: "full_name", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
@@ -308,7 +312,7 @@ Plot.plot({
 ))
 }});
 
-define({id: "376ba75c", inputs: ["Plot","dbRepos_FilteredBySQL","display"], body: async (Plot,dbRepos_FilteredBySQL,display) => {
+define({id: "4431e6a3", inputs: ["Plot","dbRepos_FilteredBySQL","display"], body: async (Plot,dbRepos_FilteredBySQL,display) => {
 display(await(
 Plot.plot({
   title: "Nadia community cohorts vs. days since last update",
@@ -322,7 +326,7 @@ Plot.plot({
   marks: [
     Plot.barY(
   dbRepos_FilteredBySQL,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40})
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", title: "full_name", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40, sort: { x: "x", reverse: true }})
 )
   ]
 })
@@ -358,7 +362,7 @@ Plot.plot({
 
 .hero h2 {
   margin: 0;
-  max-width: 34em;
+  max-width: none;
   font-size: 20px;
   font-style: initial;
   font-weight: 500;
@@ -373,11 +377,12 @@ Plot.plot({
 }
 
 p {
-  max-width:1200px;
+  max-width:2000px;
 }
 
 </style>
 <h1 id="repository-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#repository-cohorts">Repository Cohorts</a></h1>
+<p><b style="color:red">Please note that this page is in active development</b></p>
 <h2 id="what-is-this-page%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-is-this-page%3F">What is this page?</a></h2>
 <p><em>This page is a very brief demonstration of the concept of repository cohorts.</em> It is designed
 to act as a companion to a talk that will be given at Open Source Summit North America 2024
@@ -387,24 +392,29 @@ titled
 <p>Data on this page is loaded from a CSV file and is not updated post 2024-03-19.
 It is from a fixed snapshot in time that is now out of date.</p>
 <p>It shows data from from real repositories.
-These repositories are all from GitHub organizations mointored by Microsoft either owns or has a hand in the
+These repositories are all from GitHub organizations monitored by Microsoft either owns or has a hand in the
 governance of and therefore collects data on.
 All the data shown is public data that we collect and harvest via the GitHub API, just like anyone else could.</p>
 <div id="cell-67c6cfb5" class="observablehq observablehq--block"></div>
+<h2 id="how-to-adapt-this-for-your-own-purposes" tabindex="-1"><a class="observablehq-header-anchor" href="#how-to-adapt-this-for-your-own-purposes">How to adapt this for your own purposes</a></h2>
+<p>To see the code, look at
+the <a href="https://github.com/microsoft/OSPO/blob/main/repository_cohorts/framework/docs/components/cohorts.js">cohort.js</a> file
+and <a href="https://github.com/microsoft/OSPO/blob/main/repository_cohorts/framework/docs/index.md">index.md</a> file in the repository that builds this page. The open source <a href="https://observablehq.com/framework/">Observable Framework</a> is used to generate the data visualization static site.</p>
 <h2 id="data-transformation-steps" tabindex="-1"><a class="observablehq-header-anchor" href="#data-transformation-steps">Data transformation steps</a></h2>
-<p>On this demo page all repository cohorts are calculated with the JavaScript code found in the same
-source repository that builds this GitHub pages page.
-Internally, we use <a href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/">Kusto Query Language</a>
-to generate the cohort columns. The logic is identical.</p>
-<p>We load the data from CSV through Observable framework's file attachment process.</p>
-<pre><code>const repos = FileAttachment("./data/microsoft_repos_public_20240319.csv)").csv();
-</code></pre>
+<p>Internally, Microsoft uses <a href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/">Kusto Query Language</a>
+to generate the cohort columns. The logic used on this page is identical but in JavaScript.</p>
+<p>The initial data processing steps are load the CSV file,
+rename several of the columns as needed, then calculate additional columns, including cohort columns.
+The data is then ready for further analysis to generate insights.</p>
 <p>Unprocessesd raw data</p>
 <div id="cell-f12da7f0" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-187024fe" class="observablehq observablehq--block"></div>
 <div id="cell-d4573328" class="observablehq observablehq--block"></div>
-<p>Next, keys are renamed to mirror ecosyste.ms key names, so this example code can be reused more easily</p>
-<div id="cell-809da521" class="observablehq observablehq--block observablehq--loading"></div>
+<p>Keys are renamed to mirror ecosyste.ms key names, so this example code can be reused more easily</p>
+<p>The renamed key mapping:</p>
+<div id="cell-60c540e3" class="observablehq observablehq--block observablehq--loading"></div>
+<p>The data table with renamed keys:</p>
+<div id="cell-46a3ba72" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-c8980d44" class="observablehq observablehq--block"></div>
 <p>Calculated columns are created, including cohort columns. These are added on to the existing columns.</p>
 <div id="cell-fcd0ec4a" class="observablehq observablehq--block observablehq--loading"></div>
@@ -412,7 +422,7 @@ to generate the cohort columns. The logic is identical.</p>
 <p>Scroll to the far right to see cohort columns</p>
 <div id="cell-7e8f1c87" class="observablehq observablehq--block"></div>
 <hr>
-<h2 id="what-are-repository-cohorts-and-what-problem-do-they-solve%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-are-repository-cohorts-and-what-problem-do-they-solve%3F">What are repository cohorts and what problem do they solve?</a></h2>
+<h2 id="what-problems-do-repository-cohorts-solve%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-problems-do-repository-cohorts-solve%3F">What problems do repository cohorts solve?</a></h2>
 <h3 id="no-wants-to-read-3%2C000-readmes" tabindex="-1"><a class="observablehq-header-anchor" href="#no-wants-to-read-3%2C000-readmes">No wants to read 3,000 READMEs</a></h3>
 <p>OSPOs often have to manage, enforce compliance, and recommend best practice for
 many hundreds or thousands of repositories.
@@ -421,25 +431,26 @@ there's a strong tendancy for OSPOs to treat every repository the same and make
 policy and best practive recommendations for an average repository or more
 accurately an average top of mind repository.</p>
 <h3 id="metadata-but-make-it-more-easily-reusable" tabindex="-1"><a class="observablehq-header-anchor" href="#metadata-but-make-it-more-easily-reusable">Metadata but make it more easily reusable</a></h3>
-<p>Metadata reduces the need to read thousands of repositories by letting OSPO's
+<p>Metadata reduces the need to read thousands of repositories by letting OSPOs
 understand repositories according to their easily measurable characteristics.</p>
 <p>This typically requiress OSPOs, or a centralized data team that OSPO is working with, to collect
 code platform metadata (GitHub, Azure DevOps, etc.) on a reoccurring basis and then
-provide it for reuse to others internally from a database.</p>
+provide it for reuse to others internally from a database and/or API.</p>
 <p>Working with raw repository metadata fields, however, requires thought about how to combine
 raw data, where to make thresholds, etc. If this is done again and again for each potential
 use case of the metadata, it imposes time and cognitive burdens that limit how often
-the metadata is used to make data informed decisions. Additioanally, small differences
-in where to make a cut off for highly forked repositroies versus normally forked repositories
-can lead to inefficiencies in applying the learnings from one project to another project.</p>
-<p>Repository cohorts attempts to solve these problems may being standardized labels for repostories.
+the metadata is used to make data informed decisions. Additionally, small differences
+in where to make a cut off for categories such as highly forked repositories versus normally forked
+repositories can lead to inefficiencies in applying the learnings from one project to another project.</p>
+<p>Repository cohorts attempts to solve these problems by being standardized labels for repostories.
 They have meanings that are easy to remember and can be reused with very little effort as they become
 additional columns in the repository metadata table.</p>
+<h3 id="repository-cohort-structure" tabindex="-1"><a class="observablehq-header-anchor" href="#repository-cohort-structure">Repository cohort structure</a></h3>
 <p>Repository cohorts are either true or false. There can be groups of cohorts that split a dimension.
 For exampple, there can be cohorts of repository age of baby, toddler, teenager, adult, and senior.
 Each repository, or row in the table, will be true for only one of these cohorts and false for all the
 other cohorts in the group. Additionally, there will be a column that has the column name of the
-cohort that is true.</p>
+cohort that is true for each cohort group.</p>
 <h3 id="benefits-of-repository-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#benefits-of-repository-cohorts">Benefits of repository cohorts</a></h3>
 <p>These characteristics of repository cohorts makes it easier to generate counts of cohorts from a single cohort group
 for any filtered group of repositories. Additionally, you can combine cohorts using
@@ -448,12 +459,13 @@ The idea is that this makes it faster and easier to gain insights into the commu
 across thousands of repositories compared with reading READMEs &amp; issues or working with raw metadata fields.</p>
 <hr>
 <h2 id="initial-visualizations-of-main-repository-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#initial-visualizations-of-main-repository-cohorts">Initial visualizations of main repository cohorts</a></h2>
-<div id="cell-6461b8d0" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-63d830b9" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-e4e98f2f" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-1ed2f291" class="observablehq observablehq--block observablehq--loading"></div>
+<p><em>Note that the tool tips have a limit of how many repositories they will show information for.</em></p>
+<div id="cell-f9a44dbb" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-d8edb208" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-3d2b9358" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-b6b4cb72" class="observablehq observablehq--block observablehq--loading"></div>
 <hr>
-<h2 id="sql-filtering-on-table-and-plots-below" tabindex="-1"><a class="observablehq-header-anchor" href="#sql-filtering-on-table-and-plots-below">SQL filtering on table and plots below</a></h2>
+<h2 id="user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below" tabindex="-1"><a class="observablehq-header-anchor" href="#user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below">User inputs are used in a SQL query that filters data in tables and plots below</a></h2>
 <div id="cell-d51b2e2b" class="observablehq observablehq--block"></div>
 <div id="cell-f2921f95" class="observablehq observablehq--block"></div>
 <pre><code>SELECT * FROM reposSQL WHERE size &gt; ${sizeMin} AND size &lt; ${sizeMax} AND stargazers_count &gt; ${stargazer_count_min} AND daysSinceUpdated &lt; ${max_days_since_updated} AND daysSinceUpdated &gt; ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}
@@ -461,10 +473,9 @@ across thousands of repositories compared with reading READMEs &amp; issues or w
 <div id="cell-43c522ad" class="observablehq observablehq--block"></div>
 <div id="cell-78ee441f" class="observablehq observablehq--block"></div>
 <div id="cell-03d28ae5" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-376ba75c" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-4431e6a3" class="observablehq observablehq--block observablehq--loading"></div>
 <h3 id="what-is-a-nadia-cohort%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-is-a-nadia-cohort%3F">What is a Nadia Cohort?</a></h3>
-<p>The Nadia cohort group attemps to capture a description of community user / contributor patterns that reveal something about the structure of a community that builds a repository. This idea comes from <a href="https://nadia.xyz/">Nadia Asparouhova's</a> book <a href="https://press.stripe.com/working-in-public">"Working in Public: The Making and Maintenance of Open Source Software"</a> Strip Matter Incorporated, 2020, pp59-65.
-where the categories of open source projects as being federations, clubs, stadiums, or toys are presented. No exact metrics are given
+<p>The Nadia cohort group attemps to capture a description of community user / contributor patterns that reveal something about the structure of a community that builds a repository. This idea comes from <a href="https://nadia.xyz/">Nadia Asparouhova's</a> book <a href="https://press.stripe.com/working-in-public">"Working in Public: The Making and Maintenance of Open Source Software"</a> Stripe Matter Incorporated, 2020, pp59-65, which  categorizes open source project communities as being federations, clubs, stadiums, or toys. No exact metrics are given
 for defining the boundaries, but rather they are described using a matrix of high or low contributor growth and high or low user growth.</p>
 <table>
 <thead>
@@ -488,11 +499,11 @@ for defining the boundaries, but rather they are described using a matrix of hig
 </tbody>
 </table>
 <p>For repository cohorts, we have taken these ideas and modified them to work with easily available repository metadata.
-Additionally, we have adding a category of "middle" or "mid" repositories that are not quite one of those four but some where
-in between them. We also have a "missing data" Nadia cohort for when we lack the repository metadata needed.</p>
-<h4 id="metadata-thresholds-or-nadia-community-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#metadata-thresholds-or-nadia-community-cohorts">Metadata thresholds or Nadia community cohorts</a></h4>
-<p>The metadata thresholds used for the Nadis cohort group are based on a combination of
-community size, stargazer count, and ratio of stargazers vs. commiter count.</p>
+We have also added a category of "middle" or "mid" repositories that are not quite one of those four but some where
+in between them. There is also a "missing data" Nadia cohort for when we lack the repository metadata needed to calculate a Nadia cohort.</p>
+<h4 id="metadata-thresholds-for-nadia-community-cohorts" tabindex="-1"><a class="observablehq-header-anchor" href="#metadata-thresholds-for-nadia-community-cohorts">Metadata thresholds for Nadia community cohorts</a></h4>
+<p>The metadata thresholds used for what we are calling Nadia cohorts is based on a combination of
+community size, stargazer count, and ratio of stargazers vs. committer count.</p>
 <table>
 <thead>
 <tr>
@@ -542,17 +553,17 @@ community size, stargazer count, and ratio of stargazers vs. commiter count.</p>
 </tbody>
 </table>
 <p>These thresholds seem to work well for Microsoft repositories. We would be interested in learning what
-other organizations use if they model similar cohorts.</p>
-<p>To describe them in plain english:</p>
+other organizations use if they model similar cohorts, so please add an issue with any feedback or comments.</p>
+<p>To describe these cohorts in plain english:</p>
 <ol>
-<li><strong>Federations</strong> are built by a large community with an even large silent group of users and watchers.</li>
-<li><strong>Clubs</strong> are built but a large community with the ratio of silent users and watches being closer to the size of the contributor community.</li>
-<li><strong>Stadium</strong> is built by a small community with a larger proportion of silent users and watchers.</li>
-<li><strong>Toy</strong> is built by a small community with a small number of silent users and watchers.</li>
-<li><strong>mid</strong> is built by a moderately sized community.</li>
+<li><strong>Federations</strong> are built by a large community with a much larger silent group of watchers.</li>
+<li><strong>Clubs</strong> are built but a large community with the ratio of silent watchers closer to the size of the contributor community.</li>
+<li><strong>Stadium</strong> is built by a small community with a larger proportion of silent watchers.</li>
+<li><strong>Toy</strong> is built by a small community with a small number of silent watchers.</li>
+<li><strong>mid</strong> is built by a moderately sized community that sits between the other cohorts in terms of community size.</li>
 </ol>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-03-20T11:47:50">Mar 20, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-03-20T13:14:55">Mar 20, 2024</a>.</div>
 </footer>
 </div>
