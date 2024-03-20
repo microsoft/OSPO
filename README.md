@@ -6,7 +6,7 @@ A place where we'll share various resources we've created to help our team and o
 The repository cohorts directory holds an example of the repository cohorts concept. 
 Some of the content in this directory is associated with a 2024 Open Source Summit talk.
 The `framework` directory within the `repository_cohorts directory` holds an Observable Framework project 
-that builds a static GitHub pages page that should be viewable at https://microsoft.github.io/OSPO/repository_cohorts/framework/dist/
+that builds a static GitHub pages page that should be viewable [here](https://microsoft.github.io/OSPO/repository_cohorts/framework/dist/)
 . It implements the repository cohorts concept for a fixed export of Microsoft public repository metadata.
 
 
