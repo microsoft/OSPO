@@ -1,6 +1,35 @@
-# framework
+# Repository Cohorts
+
+The content of this directory holds a front-end only website built with 
+the [Observable Framework](https://observablehq.com/framework) library. 
+It is intended as demonstration of using repository cohorts concept to turn 
+repository metadata into more easily undestandable groups or 'cohorts' of repositories. 
+
+Relevant to the top directory of this repository, 
+the data processing code is in `repository_cohorts/framework/docs/components/cohorts.js`. 
+Visualization code is in the `repository_cohorts/framework/docs/index.md` file.
+
+## Contributing
+
+The code in the files mentioned above is intended to be reused via example, not necessarily directly imported. 
+
+Internally, we largely due this analysis using the 
+[KQL (Kusto Query Language)](https://learn.microsoft.com/en-us/azure/data-explorer/kql-learning-resources). 
+However, we are demoing repository cohorts here in JavaScript to make it more reusable. 
+
+If you have a cohort that you use that is not in this code, but could be easily contributed if added to the JSON 
+consumed by the `repos_cohort_processed_BaseCohorts` function in `cohorts.js`, then please submit a pull request.
+We would love to see what others are finding is useful cohorts to examine. 
+
+## Getting started
 
 This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
+
+```
+npm install
+```
+
+Then 
 
 ```
 npm run dev
@@ -12,22 +41,17 @@ For more, see <https://observablehq.com/framework/getting-started>.
 
 ## Project structure
 
-A typical Framework project looks like this:
-
 ```ini
 .
 ├─ docs
 │  ├─ components
-│  │  └─ timeline.js           # an importable module
+│  │  └─ cohorts.js           # an importable module used to calculate repository cohorts
 │  ├─ data
-│  │  ├─ launches.csv.js       # a data loader
-│  │  └─ events.json           # a static data file
-│  ├─ example-dashboard.md     # a page
-│  ├─ example-report.md        # another page
-│  └─ index.md                 # the home page
+│  │  ├─ microsoft_repos_public_20240319.csv       # a data file with a fixed export of Microsoft repository metadata
+│  └─ index.md                 # the home page for repository cohorts
 ├─ .gitignore
 ├─ observablehq.config.js      # the project config file
-├─ package.json
+├─ package.json                 # defines our dependencies
 └─ README.md
 ```
 

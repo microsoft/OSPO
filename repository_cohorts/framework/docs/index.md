@@ -2,6 +2,12 @@
 toc: false
 ---
 
+<!-- //
+// Copyright (c) Microsoft.
+// Licensed under the Creative Commons Attribution 4.0 International license. See LICENSE file in the project root for full license information.
+// -->
+
+
 <style>
 
 .hero {
@@ -170,9 +176,9 @@ import {countsCohortGroup} from "./components/cohorts.js"
 
 import {createCohortColumns} from "./components/cohorts.js";
 
-import {repos_cohort_processed_BaseCohorts} from "./components/cohorts.js";
+import {repos_cohort_processed_BaseCohorts, jsonThatDescribesCohortsToCreate} from "./components/cohorts.js";
 
-const repos_cohort_processedSemi = repos_cohort_processed_BaseCohorts(reposReName )
+const repos_cohort_processedSemi = repos_cohort_processed_BaseCohorts(reposReName, jsonThatDescribesCohortsToCreate)
 
 const dataCohortsWithTrueInGroup = countsCohortGroup(repos_cohort_processedSemi,[ "cohort_sample","cohort_age","cohort_committers","cohort_Nadia"])
 

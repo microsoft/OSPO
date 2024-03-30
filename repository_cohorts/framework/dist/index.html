@@ -15,7 +15,7 @@
 <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/tabulator-tables/+esm">
 <link rel="modulepreload" href="./_observablehq/stdlib/duckdb.js">
 <link rel="modulepreload" href="./_npm/@duckdb/duckdb-wasm@1.28.0/+esm.js">
-<link rel="modulepreload" href="./_import/components/cohorts.fbbeedb5.js">
+<link rel="modulepreload" href="./_import/components/cohorts.630326fe.js">
 <link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/+esm.js">
 <link rel="modulepreload" href="./_npm/d3@7.9.0/+esm.js">
 <link rel="modulepreload" href="./_observablehq/stdlib/inputs.js">
@@ -104,7 +104,7 @@ return {color,colorLanguage};
 }});
 
 define({id: "d4573328", inputs: ["repos"], outputs: ["renameKeys","changeKeyNamesObject","reposReName"], body: async (repos) => {
-const {renameKeys} = await import("./_import/components/cohorts.fbbeedb5.js");
+const {renameKeys} = await import("./_import/components/cohorts.630326fe.js");
 // rename column names
 
 const changeKeyNamesObject = {
@@ -136,19 +136,19 @@ define({id: "46a3ba72", inputs: ["display","reposReName"], body: (display,reposR
 display(reposReName )
 }});
 
-define({id: "c8980d44", inputs: ["reposReName"], outputs: ["countsCohortGroup","createCohortColumns","repos_cohort_processed_BaseCohorts","repos_cohort_processedSemi","dataCohortsWithTrueInGroup"], body: async (reposReName) => {
-const [{countsCohortGroup}, {createCohortColumns}, {repos_cohort_processed_BaseCohorts}] = await Promise.all([import("./_import/components/cohorts.fbbeedb5.js"), import("./_import/components/cohorts.fbbeedb5.js"), import("./_import/components/cohorts.fbbeedb5.js")]);
+define({id: "6a90bfab", inputs: ["reposReName"], outputs: ["countsCohortGroup","createCohortColumns","repos_cohort_processed_BaseCohorts","jsonThatDescribesCohortsToCreate","repos_cohort_processedSemi","dataCohortsWithTrueInGroup"], body: async (reposReName) => {
+const [{countsCohortGroup}, {createCohortColumns}, {repos_cohort_processed_BaseCohorts, jsonThatDescribesCohortsToCreate}] = await Promise.all([import("./_import/components/cohorts.630326fe.js"), import("./_import/components/cohorts.630326fe.js"), import("./_import/components/cohorts.630326fe.js")]);
 
 // CREATING COHORTS 
 
 
 
-const repos_cohort_processedSemi = repos_cohort_processed_BaseCohorts(reposReName )
+const repos_cohort_processedSemi = repos_cohort_processed_BaseCohorts(reposReName, jsonThatDescribesCohortsToCreate)
 
 const dataCohortsWithTrueInGroup = countsCohortGroup(repos_cohort_processedSemi,[ "cohort_sample","cohort_age","cohort_committers","cohort_Nadia"])
 
 
-return {countsCohortGroup,createCohortColumns,repos_cohort_processed_BaseCohorts,repos_cohort_processedSemi,dataCohortsWithTrueInGroup};
+return {countsCohortGroup,createCohortColumns,repos_cohort_processed_BaseCohorts,jsonThatDescribesCohortsToCreate,repos_cohort_processedSemi,dataCohortsWithTrueInGroup};
 }});
 
 define({id: "fcd0ec4a", inputs: ["display","dataCohortsWithTrueInGroup"], body: (display,dataCohortsWithTrueInGroup) => {
@@ -336,6 +336,10 @@ Plot.plot({
 </script>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
+<!-- //
+// Copyright (c) Microsoft.
+// Licensed under the Creative Commons Attribution 4.0 International license. See LICENSE file in the project root for full license information.
+// -->
 <style>
 
 .hero {
@@ -415,7 +419,7 @@ The data is then ready for further analysis to generate insights.</p>
 <div id="cell-60c540e3" class="observablehq observablehq--block observablehq--loading"></div>
 <p>The data table with renamed keys:</p>
 <div id="cell-46a3ba72" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-c8980d44" class="observablehq observablehq--block"></div>
+<div id="cell-6a90bfab" class="observablehq observablehq--block"></div>
 <p>Calculated columns are created, including cohort columns. These are added on to the existing columns.</p>
 <div id="cell-fcd0ec4a" class="observablehq observablehq--block observablehq--loading"></div>
 <h3 id="table-showing-all-repositories-with-calculated-cohort-columns." tabindex="-1"><a class="observablehq-header-anchor" href="#table-showing-all-repositories-with-calculated-cohort-columns.">Table showing all repositories with calculated cohort columns.</a></h3>
@@ -564,6 +568,6 @@ other organizations use if they model similar cohorts, so please add an issue wi
 </ol>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-03-20T13:14:55">Mar 20, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-03-30T00:59:16">Mar 30, 2024</a>.</div>
 </footer>
 </div>
