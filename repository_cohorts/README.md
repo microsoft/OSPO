@@ -2,7 +2,8 @@
 
 The repository cohorts directory holds example of the repository cohorts concept. 
 
-Some of the content in this directory will be presented at the 2023 Open Source Summit.
+Some of the content in this directory will be presented at 
+the [2023 Open Source Summit](https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no).
 
 This directory is in early stages and is not yet fully working.
 
