@@ -1,5 +1,6 @@
 
-> This playbook does not include guidance for licensing, compliance or other specific legal or business policies.
+> This is a teaching tool for people new to releasing OSS, or who want to revisit their goals for existing projects.  
+> This does not include guidance for licensing, compliance or other specific legal or business policies
 
 # Introduction
 
