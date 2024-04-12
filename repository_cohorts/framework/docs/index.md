@@ -65,7 +65,7 @@ to act as a companion to a talk that will be given at Open Source Summit North A
 titled 
 ["Repository Cohorts: How OSPO's Can Programmatically Categorize All Their Repositories"](https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no).
 
-## What to know about the data being shown here?
+### What to know about the data being shown here?
 Data on this page is loaded from a CSV file and is not updated post 2024-03-19. 
 It is from a fixed snapshot in time that is now out of date.
 
@@ -89,7 +89,7 @@ import {DuckDBClient} from "npm:@observablehq/duckdb";
 const repos = FileAttachment("./data/microsoft_repos_public_20240319.csv").csv();
 
 ```
-## Contributing (or adapting for your own purposes)
+### Contributing (or adapting for your own purposes)
 
 This demo is built from code in the `repository_cohorts/framework` directory of the [https://github.com/microsoft/OSPO](https://github.com/microsoft/OSPO) repository.
 
@@ -298,9 +298,51 @@ Plot.plot({
 })
 ```
 
+### What is a Nadia Cohort?
+
+The Nadia cohort group attemps to capture a description of community user / contributor patterns that reveal something about the structure of a community that builds a repository. This idea comes from [Nadia Asparouhova's](https://nadia.xyz/) book ["Working in Public: The Making and Maintenance of Open Source Software"](https://press.stripe.com/working-in-public) Stripe Matter Incorporated, 2020, pp59-65, which  categorizes open source project communities as being federations, clubs, stadiums, or toys. No exact metrics are given 
+for defining the boundaries, but rather they are described using a matrix of high or low contributor growth and high or low user growth.
+
+|                              | HIGH USER GROWTH | LOW USER GROWTH |
+|------------------------------|------------------|-----------------|
+| **HIGH CONTRIBUTOR GROWTH**  | Federations      | Clubs           |
+| **LOW CONTRIBUTOR GROWTH**   | Stadiums         | Toys            |  
+
+For repository cohorts, we have taken these ideas and modified them to work with easily available repository metadata.
+We have also added a category of "middle" or "mid" repositories that are not quite one of those four but some where 
+in between them. There is also a "missing data" Nadia cohort for when we lack the repository metadata needed to calculate a Nadia cohort.
+
+#### Metadata thresholds for Nadia community cohorts
+The metadata thresholds used for what we are calling Nadia cohorts is based on a combination of 
+community size, stargazer count, and ratio of stargazers vs. committer count.
+
+
+|                              | ratioStargazersVsCommitters > 2 | ratioStargazersVsCommitters < 2 |
+|------------------------------|------------------|-----------------|
+| **> 60 contributors**       | Federation cohort      | Club cohort         |
+
+|       |    | |
+|------------------------------|------------------|-----------------|
+| **6 < contributors < 60**      | Mid cohort   |  |
+
+|                              | stargazers_count > 100 | stargazers_count < 100 |
+|------------------------------|------------------|-----------------|
+| **< 6 contributors**       | Stadium cohort             | Toy cohort                  |  
+
+These thresholds seem to work well for Microsoft repositories. We would be interested in learning what 
+other organizations use if they model similar cohorts, so please add an issue with any feedback or comments.
+
+To describe these cohorts in plain english: 
+1. **Federations** are built by a large community with a much larger silent group of watchers.
+2. **Clubs** are built but a large community with the ratio of silent watchers closer to the size of the contributor community. 
+3. **Stadium** is built by a small community with a larger proportion of silent watchers.
+4. **Toy** is built by a small community with a small number of silent watchers. 
+5. **mid** is built by a moderately sized community that sits between the other cohorts in terms of community size.
+
+
 ```js
 Plot.plot({
-  title: "Cohort analysis cohort_Nadia vs. age in days",
+  title: "Count of repos in Nadia community cohorts colored by age in days",
   marginTop: 20,
   marginRight: 20,
   marginBottom: 30,
@@ -319,7 +361,7 @@ Plot.plot({
 
 ```js
 Plot.plot({
-  title: "Nadia community cohorts vs. days since last update",
+  title: "Count of repos in Nadia community cohorts colored by days since last update",
   marginTop: 20,
   marginRight: 20,
   marginBottom: 30,
@@ -327,10 +369,10 @@ Plot.plot({
   grid: true,
   width: 1000,
   color: { legend: true } ,
-  marks: [
+  marks: [F
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", title: "full_name", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "daysSinceUpdated", title: "full_name",  lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
@@ -407,7 +449,7 @@ Plot.plot({
 
 ```js
 Plot.plot({
-  title: "Nadia community cohorts vs. days since last update",
+  title: "Nadia community cohorts colored by days since last update",
   marginTop: 20,
   marginRight: 20,
   marginBottom: 30,
@@ -425,43 +467,3 @@ Plot.plot({
 ```
 
 
-### What is a Nadia Cohort?
-
-The Nadia cohort group attemps to capture a description of community user / contributor patterns that reveal something about the structure of a community that builds a repository. This idea comes from [Nadia Asparouhova's](https://nadia.xyz/) book ["Working in Public: The Making and Maintenance of Open Source Software"](https://press.stripe.com/working-in-public) Stripe Matter Incorporated, 2020, pp59-65, which  categorizes open source project communities as being federations, clubs, stadiums, or toys. No exact metrics are given 
-for defining the boundaries, but rather they are described using a matrix of high or low contributor growth and high or low user growth.
-
-|                              | HIGH USER GROWTH | LOW USER GROWTH |
-|------------------------------|------------------|-----------------|
-| **HIGH CONTRIBUTOR GROWTH**  | Federations      | Clubs           |
-| **LOW CONTRIBUTOR GROWTH**   | Stadiums         | Toys            |  
-
-For repository cohorts, we have taken these ideas and modified them to work with easily available repository metadata.
-We have also added a category of "middle" or "mid" repositories that are not quite one of those four but some where 
-in between them. There is also a "missing data" Nadia cohort for when we lack the repository metadata needed to calculate a Nadia cohort.
-
-#### Metadata thresholds for Nadia community cohorts
-The metadata thresholds used for what we are calling Nadia cohorts is based on a combination of 
-community size, stargazer count, and ratio of stargazers vs. committer count.
-
-
-|                              | ratioStargazersVsCommitters > 2 | ratioStargazersVsCommitters < 2 |
-|------------------------------|------------------|-----------------|
-| **> 60 contributors**       | Federation cohort      | Club cohort         |
-
-|       |    | |
-|------------------------------|------------------|-----------------|
-| **6 < contributors < 60**      | Mid cohort   |  |
-
-|                              | stargazers_count > 100 | stargazers_count < 100 |
-|------------------------------|------------------|-----------------|
-| **< 6 contributors**       | Stadium cohort             | Toy cohort                  |  
-
-These thresholds seem to work well for Microsoft repositories. We would be interested in learning what 
-other organizations use if they model similar cohorts, so please add an issue with any feedback or comments.
-
-To describe these cohorts in plain english: 
-1. **Federations** are built by a large community with a much larger silent group of watchers.
-2. **Clubs** are built but a large community with the ratio of silent watchers closer to the size of the contributor community. 
-3. **Stadium** is built by a small community with a larger proportion of silent watchers.
-4. **Toy** is built by a small community with a small number of silent watchers. 
-5. **mid** is built by a moderately sized community that sits between the other cohorts in terms of community size.

@@ -207,10 +207,10 @@ Plot.plot({
 ))
 }});
 
-define({id: "3d2b9358", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
+define({id: "44ce4041", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
 display(await(
 Plot.plot({
-  title: "Cohort analysis cohort_Nadia vs. age in days",
+  title: "Count of repos in Nadia community cohorts colored by age in days",
   marginTop: 20,
   marginRight: 20,
   marginBottom: 30,
@@ -222,27 +222,6 @@ Plot.plot({
     Plot.barY(
   dataCohortsWithTrueInGroup,
   Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "age_in_days" , title: "full_name",  lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
-)
-  ]
-})
-))
-}});
-
-define({id: "b6b4cb72", inputs: ["Plot","dataCohortsWithTrueInGroup","display"], body: async (Plot,dataCohortsWithTrueInGroup,display) => {
-display(await(
-Plot.plot({
-  title: "Nadia community cohorts vs. days since last update",
-  marginTop: 20,
-  marginRight: 20,
-  marginBottom: 30,
-  marginLeft: 40,
-  grid: true,
-  width: 1000,
-  color: { legend: true } ,
-  marks: [
-    Plot.barY(
-  dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", title: "full_name", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
@@ -312,10 +291,10 @@ Plot.plot({
 ))
 }});
 
-define({id: "4431e6a3", inputs: ["Plot","dbRepos_FilteredBySQL","display"], body: async (Plot,dbRepos_FilteredBySQL,display) => {
+define({id: "8cf04ceb", inputs: ["Plot","dbRepos_FilteredBySQL","display"], body: async (Plot,dbRepos_FilteredBySQL,display) => {
 display(await(
 Plot.plot({
-  title: "Nadia community cohorts vs. days since last update",
+  title: "Nadia community cohorts colored by days since last update",
   marginTop: 20,
   marginRight: 20,
   marginBottom: 30,
@@ -392,7 +371,7 @@ p {
 to act as a companion to a talk that will be given at Open Source Summit North America 2024
 titled
 <a href="https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no">"Repository Cohorts: How OSPO's Can Programmatically Categorize All Their Repositories"</a>.</p>
-<h2 id="what-to-know-about-the-data-being-shown-here%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-to-know-about-the-data-being-shown-here%3F">What to know about the data being shown here?</a></h2>
+<h3 id="what-to-know-about-the-data-being-shown-here%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-to-know-about-the-data-being-shown-here%3F">What to know about the data being shown here?</a></h3>
 <p>Data on this page is loaded from a CSV file and is not updated post 2024-03-19.
 It is from a fixed snapshot in time that is now out of date.</p>
 <p>It shows data from from real repositories.
@@ -400,10 +379,13 @@ These repositories are all from GitHub organizations monitored by Microsoft eith
 governance of and therefore collects data on.
 All the data shown is public data that we collect and harvest via the GitHub API, just like anyone else could.</p>
 <div id="cell-67c6cfb5" class="observablehq observablehq--block"></div>
-<h2 id="how-to-adapt-this-for-your-own-purposes" tabindex="-1"><a class="observablehq-header-anchor" href="#how-to-adapt-this-for-your-own-purposes">How to adapt this for your own purposes</a></h2>
+<h3 id="contributing-(or-adapting-for-your-own-purposes)" tabindex="-1"><a class="observablehq-header-anchor" href="#contributing-(or-adapting-for-your-own-purposes)">Contributing (or adapting for your own purposes)</a></h3>
+<p>This demo is built from code in the <code>repository_cohorts/framework</code> directory of the <a href="https://github.com/microsoft/OSPO">https://github.com/microsoft/OSPO</a> repository.</p>
 <p>To see the code, look at
 the <a href="https://github.com/microsoft/OSPO/blob/main/repository_cohorts/framework/docs/components/cohorts.js">cohort.js</a> file
 and <a href="https://github.com/microsoft/OSPO/blob/main/repository_cohorts/framework/docs/index.md">index.md</a> file in the repository that builds this page. The open source <a href="https://observablehq.com/framework/">Observable Framework</a> is used to generate the data visualization static site.</p>
+<p>How each repository cohort is defined is described in the const <code>jsonThatDescribesCohortsToCreate</code>. That JSON data structure contains for each repository cohort, what function is
+used to make it and all the required function arguments. If you have a repository cohort of your own making that relies on standard GitHub metadata, please share it with others by submitting a pull request.</p>
 <h2 id="data-transformation-steps" tabindex="-1"><a class="observablehq-header-anchor" href="#data-transformation-steps">Data transformation steps</a></h2>
 <p>Internally, Microsoft uses <a href="https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/">Kusto Query Language</a>
 to generate the cohort columns. The logic used on this page is identical but in JavaScript.</p>
@@ -466,18 +448,6 @@ across thousands of repositories compared with reading READMEs &amp; issues or w
 <p><em>Note that the tool tips have a limit of how many repositories they will show information for.</em></p>
 <div id="cell-f9a44dbb" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-d8edb208" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-3d2b9358" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-b6b4cb72" class="observablehq observablehq--block observablehq--loading"></div>
-<hr>
-<h2 id="user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below" tabindex="-1"><a class="observablehq-header-anchor" href="#user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below">User inputs are used in a SQL query that filters data in tables and plots below</a></h2>
-<div id="cell-d51b2e2b" class="observablehq observablehq--block"></div>
-<div id="cell-f2921f95" class="observablehq observablehq--block"></div>
-<pre><code>SELECT * FROM reposSQL WHERE size &gt; ${sizeMin} AND size &lt; ${sizeMax} AND stargazers_count &gt; ${stargazer_count_min} AND daysSinceUpdated &lt; ${max_days_since_updated} AND daysSinceUpdated &gt; ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}
-</code></pre>
-<div id="cell-43c522ad" class="observablehq observablehq--block"></div>
-<div id="cell-78ee441f" class="observablehq observablehq--block"></div>
-<div id="cell-03d28ae5" class="observablehq observablehq--block observablehq--loading"></div>
-<div id="cell-4431e6a3" class="observablehq observablehq--block observablehq--loading"></div>
 <h3 id="what-is-a-nadia-cohort%3F" tabindex="-1"><a class="observablehq-header-anchor" href="#what-is-a-nadia-cohort%3F">What is a Nadia Cohort?</a></h3>
 <p>The Nadia cohort group attemps to capture a description of community user / contributor patterns that reveal something about the structure of a community that builds a repository. This idea comes from <a href="https://nadia.xyz/">Nadia Asparouhova's</a> book <a href="https://press.stripe.com/working-in-public">"Working in Public: The Making and Maintenance of Open Source Software"</a> Stripe Matter Incorporated, 2020, pp59-65, which  categorizes open source project communities as being federations, clubs, stadiums, or toys. No exact metrics are given
 for defining the boundaries, but rather they are described using a matrix of high or low contributor growth and high or low user growth.</p>
@@ -566,8 +536,22 @@ other organizations use if they model similar cohorts, so please add an issue wi
 <li><strong>Toy</strong> is built by a small community with a small number of silent watchers.</li>
 <li><strong>mid</strong> is built by a moderately sized community that sits between the other cohorts in terms of community size.</li>
 </ol>
+<div id="cell-44ce4041" class="observablehq observablehq--block observablehq--loading"></div>
+<div class="observablehq observablehq--block">
+  <div class="observablehq--inspect observablehq--error">SyntaxError: Unexpected token (11:4)</div>
+</div>
+<hr>
+<h2 id="user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below" tabindex="-1"><a class="observablehq-header-anchor" href="#user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below">User inputs are used in a SQL query that filters data in tables and plots below</a></h2>
+<div id="cell-d51b2e2b" class="observablehq observablehq--block"></div>
+<div id="cell-f2921f95" class="observablehq observablehq--block"></div>
+<pre><code>SELECT * FROM reposSQL WHERE size &gt; ${sizeMin} AND size &lt; ${sizeMax} AND stargazers_count &gt; ${stargazer_count_min} AND daysSinceUpdated &lt; ${max_days_since_updated} AND daysSinceUpdated &gt; ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}
+</code></pre>
+<div id="cell-43c522ad" class="observablehq observablehq--block"></div>
+<div id="cell-78ee441f" class="observablehq observablehq--block"></div>
+<div id="cell-03d28ae5" class="observablehq observablehq--block observablehq--loading"></div>
+<div id="cell-8cf04ceb" class="observablehq observablehq--block observablehq--loading"></div>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-03-30T00:59:16">Mar 30, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-04-12T18:25:16">Apr 12, 2024</a>.</div>
 </footer>
 </div>
