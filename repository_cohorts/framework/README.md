@@ -9,6 +9,10 @@ Relevant to the top directory of this repository,
 the data processing code is in `repository_cohorts/framework/docs/components/cohorts.js`. 
 Visualization code is in the `repository_cohorts/framework/docs/index.md` file.
 
+This directory builds a static page for GitHub pages
+that should be viewable at https://microsoft.github.io/OSPO/repository_cohorts/framework/dist/
+or https://aka.ms/RepositoryCohorts/Demo/Microsoft 
+
 ## Contributing
 
 The code in the files mentioned above is intended to be reused via example, not necessarily directly imported. 
