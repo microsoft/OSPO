@@ -89,11 +89,16 @@ import {DuckDBClient} from "npm:@observablehq/duckdb";
 const repos = FileAttachment("./data/microsoft_repos_public_20240319.csv").csv();
 
 ```
-## How to adapt this for your own purposes
+## Contributing (or adapting for your own purposes)
+
+This demo is built from code in the `repository_cohorts/framework` directory of the [https://github.com/microsoft/OSPO](https://github.com/microsoft/OSPO) repository.
 
 To see the code, look at
 the [cohort.js](https://github.com/microsoft/OSPO/blob/main/repository_cohorts/framework/docs/components/cohorts.js) file 
 and [index.md](https://github.com/microsoft/OSPO/blob/main/repository_cohorts/framework/docs/index.md) file in the repository that builds this page. The open source [Observable Framework](https://observablehq.com/framework/) is used to generate the data visualization static site.
+
+How each repository cohort is defined is described in the const `jsonThatDescribesCohortsToCreate`. That JSON data structure contains for each repository cohort, what function is 
+used to make it and all the required function arguments. If you have a repository cohort of your own making that relies on standard GitHub metadata, please share it with others by submitting a pull request. 
 
 ## Data transformation steps
 
