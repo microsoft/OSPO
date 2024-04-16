@@ -407,18 +407,20 @@ const dbRepos = DuckDBClient.of({reposSQL: dataCohortsWithTrueInGroup});
 ```js
 
 //const organization = view(Inputs.select(organizationList, {multiple: true, label: "select organizations"}))
-const sizeMin = view(Inputs.range([0, 5000000], {label: "greater than this size in bytes",value:1000}));
-const sizeMax = view(Inputs.range([10, 100000000], {label: "less than this size in bytes",value:5000000}));
-const stargazer_count_min = view(Inputs.range([0, 10000], {label: "more than this many stargazers",value:20}));
-const fork_count_min = view(Inputs.range([0, 4000], {label: "more than this many forks",value:5}));
-const max_days_since_updated = view(Inputs.range([0, 10000], {label: "less than this many days since updated",value:30}));
+const sizeMin = view(Inputs.range([0, 5000000], {label: "greater than this size in bytes",value:0}));
+const sizeMax = view(Inputs.range([10, 100000000], {label: "less than this size in bytes",value:100000000}));
+const stargazer_count_min = view(Inputs.range([0, 10000], {label: "more than this many stargazers",value:0}));
+const fork_count_min = view(Inputs.range([0, 4000], {label: "more than this many forks",value:0}));
+const max_days_since_updated = view(Inputs.range([0, 10000], {label: "less than this many days since updated",value:10000}));
 const min_days_since_updated = view(Inputs.range([0, 10000], {label: "more than this many forks",value:0}));
 const archived = view(Inputs.select([null].concat(["true","false"]), {label: "archived", value:"false"}));
-const limitNumberRowsToShow = view(Inputs.range([0, 15000], {label: "max number of rows to show",value:200,step:1}));
-console.log("archived ", archived )
+const limitNumberRowsToShow = view(Inputs.range([0, 15000], {label: "max number of rows to show",value:15000,step:1}));
 ```
 
+The SQL command used to create the table and visualizations below based on the usser selected filters:
+
 ```
+
 SELECT * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}
 ```
 
