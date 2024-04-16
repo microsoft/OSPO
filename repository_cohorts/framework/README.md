@@ -33,7 +33,7 @@ We would love to see what others are finding is useful cohorts to examine.
 
 This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
 
-*These commands should be run from the directory `framework` not this repositories root!*
+*These commands should be run from the directory `framework` not this repository's root!*
 
 ```
 npm install
