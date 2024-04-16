@@ -57,13 +57,13 @@ p {
 
 # Repository Cohorts
 
-<b style="color:red">Please note that this page is in active development</b>
-
 ## What is this page?
 *This page is a very brief demonstration of the concept of repository cohorts.* It is designed 
 to act as a companion to a talk that will be given at Open Source Summit North America 2024 
 titled 
-["Repository Cohorts: How OSPO's Can Programmatically Categorize All Their Repositories"](https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no).
+["Repository Cohorts: How OSPO's Can Programmatically Categorize All Their Repositories"](https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no). The presentation slides [are online](https://docs.google.com/presentation/d/18bDgY8OnZIUfYe6E_TJmp0EARf7K98l8/edit?usp=sharing&ouid=104365002391330854633&rtpof=true&sd=true).
+
+
 
 ### What to know about the data being shown here?
 Data on this page is loaded from a CSV file and is not updated post 2024-03-19. 
@@ -217,41 +217,55 @@ many hundreds or thousands of repositories.
 This page shows over 10,000 repositories. That is way too many to read, so 
 there's a strong tendancy for OSPOs to treat every repository the same and make 
 policy and best practive recommendations for an average repository or more 
-accurately an average top of mind repository.
+accurately an average top of mind repository. 
+
+There are many situation where this pattern is less than ideal. Many times it
+would be useful to know the distribution of different types of repositories, 
+make different best practice recommendations based on repository characteristics, 
+or know more about the communities building open source that will be impacted 
+by a potential future policy change in order to design effectice communication 
+and execution measures.
 
 ### Metadata but make it more easily reusable
 
 Metadata reduces the need to read thousands of repositories by letting OSPOs 
 understand repositories according to their easily measurable characteristics.
-
-This typically requiress OSPOs, or a centralized data team that OSPO is working with, to collect 
-code platform metadata (GitHub, Azure DevOps, etc.) on a reoccurring basis and then 
-provide it for reuse to others internally from a database and/or API.
+Examples include the size of the contributing community, amount of recent activity, 
+whether the repository is a sample based on key terms in repository name or description, 
+count of stars, count of forks, presence of key files like CONTRIBUTING.md, etc.
 
 Working with raw repository metadata fields, however, requires thought about how to combine 
-raw data, where to make thresholds, etc. If this is done again and again for each potential 
-use case of the metadata, it imposes time and cognitive burdens that limit how often 
-the metadata is used to make data informed decisions. Additionally, small differences 
-in where to make a cut off for categories such as highly forked repositories versus normally forked 
-repositories can lead to inefficiencies in applying the learnings from one project to another project.
+raw metadata, where to make thresholds, etc. For example, how many forks is a high amount of forks? 
+If this is done again and again for each potential use case of the metadata, it imposes time and 
+cognitive burdens that limit how often the metadata is used to make data informed decisions. 
+Additionally, small differences in where to make a cut off for categories such as highly forked 
+repositories versus normally forked repositories can lead to inefficiencies in applying the 
+learnings from one project to another project.
 
 Repository cohorts attempts to solve these problems by being standardized labels for repostories. 
 They have meanings that are easy to remember and can be reused with very little effort as they become 
 additional columns in the repository metadata table.
 
 ### Repository cohort structure
-Repository cohorts are either true or false. There can be groups of cohorts that split a dimension. 
+Repository cohorts are either true or false for each repository. There can be groups of cohorts that split a dimension. 
 For exampple, there can be cohorts of repository age of baby, toddler, teenager, adult, and senior. 
 Each repository, or row in the table, will be true for only one of these cohorts and false for all the 
-other cohorts in the group. Additionally, there will be a column that has the column name of the 
-cohort that is true for each cohort group.
+other cohorts in the group. 
+
+This makes filtering on cohorts or combining cohorts easier cognitively than working with raw metadata as
+it becomes a matter of using AND or OR statements to combine them, which are both easier to think about 
+and easier to remember than cutoffs in raw metadata values.
 
 ### Benefits of repository cohorts
-These characteristics of repository cohorts makes it easier to generate counts of cohorts from a single cohort group
-for any filtered group of repositories. Additionally, you can combine cohorts using 
-simple AND OR statements without having to remember thresholds or rewrite extensive queries.
-The idea is that this makes it faster and easier to gain insights into the communities building each repository
-across thousands of repositories compared with reading READMEs & issues or working with raw metadata fields. 
+
+The characteristics of repository cohorts reduces the complexity, time, and cognitive burdens to using 
+metadata to analyze large amounts of repositories. By reducing these burdens, it makes it more likely 
+that data-driven insights will be leveraged in OSPO operations and more likely OSPOs can 
+deliver fit-for-purpose guidance and compliance experiences rather than everything being one-size-fits-all.
+
+What is shown in this demo is snapshot of a few cohorts based on easily collected metadata everyone will have.
+Other cohorts possible with additional data include whether a repository builds a package, whether it uses 
+GitHub Actions, cohorts based on rate of company vs. member of public contributors, etc.  
 
 --------------------------
 
@@ -361,7 +375,7 @@ Plot.plot({
 
 ```js
 Plot.plot({
-  title: "Count of repos in Nadia community cohorts colored by days since last update",
+  title: "Count of repos in Nadia community cohorts colored by age cohort",
   marginTop: 20,
   marginRight: 20,
   marginBottom: 30,
@@ -369,14 +383,15 @@ Plot.plot({
   grid: true,
   width: 1000,
   color: { legend: true } ,
-  marks: [F
+  marks: [
     Plot.barY(
   dataCohortsWithTrueInGroup,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "daysSinceUpdated", title: "full_name",  lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", fill: "cohort_age_trueValueInGroup", title: "full_name",  lineWidth: 74, marginBottom: 40, sort: { y: "y", reverse: true }})
 )
   ]
 })
 ```
+
 -----------------
 
 ## User inputs are used in a SQL query that filters data in tables and plots below
@@ -449,7 +464,7 @@ Plot.plot({
 
 ```js
 Plot.plot({
-  title: "Nadia community cohorts colored by days since last update",
+  title: "Nadia community cohorts colored by age cohort",
   marginTop: 20,
   marginRight: 20,
   marginBottom: 30,
@@ -460,7 +475,7 @@ Plot.plot({
   marks: [
     Plot.barY(
   dbRepos_FilteredBySQL,
-  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", title: "full_name", fill: "daysSinceUpdated", lineWidth: 74, marginBottom: 40, sort: { x: "x", reverse: true }})
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", title: "full_name", fill: "cohort_age_trueValueInGroup", lineWidth: 74, marginBottom: 40, sort: { x: "x", reverse: true }})
 )
   ]
 })

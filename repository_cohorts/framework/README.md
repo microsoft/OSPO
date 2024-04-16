@@ -1,5 +1,9 @@
 # Repository Cohorts
 
+This directory builds a small front-end page whose main purpose is to be a demo that lets users see the repository cohorts concept put into practice with a fixed export of Microsoft public repository metadata.
+
+It is designed to act as a companion to a talk that will be given at Open Source Summit North America 2024 titled ["Repository Cohorts: How OSPO's Can Programmatically Categorize All Their Repositories"](https://ossna2024.sched.com/event/1aBPX/repository-cohorts-how-ospos-can-programmatically-categorize-all-their-repositories-justin-gosses-microsoft-natalia-luzuriaga-remy-decausemaker-isaac-milarsky-centers-for-medicare-medicaid-services?iframe=no). The presentation slides [are online](https://docs.google.com/presentation/d/18bDgY8OnZIUfYe6E_TJmp0EARf7K98l8/edit?usp=sharing&ouid=104365002391330854633&rtpof=true&sd=true).
+
 The content of this directory holds a front-end only website built with 
 the [Observable Framework](https://observablehq.com/framework) library. 
 It is intended as demonstration of using repository cohorts concept to turn 
@@ -28,6 +32,8 @@ We would love to see what others are finding is useful cohorts to examine.
 ## Getting started
 
 This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
+
+*These commands should be run from the directory `framework` not this repositories root!*
 
 ```
 npm install
