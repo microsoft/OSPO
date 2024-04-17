@@ -257,7 +257,7 @@ const dbRepos = DuckDBClient.of({reposSQL: dataCohortsWithTrueInGroup});
 return {dbRepos};
 }});
 
-define({id: "9d61ff31", inputs: ["view","Inputs"], outputs: ["sizeMin","sizeMax","stargazer_count_min","fork_count_min","max_days_since_updated","min_days_since_updated","archived","limitNumberRowsToShow"], body: (view,Inputs) => {
+define({id: "5bf0cd0d", inputs: ["view","Inputs","dataCohortsWithTrueInGroup"], outputs: ["sizeMin","sizeMax","stargazer_count_min","fork_count_min","max_days_since_updated","min_days_since_updated","archived","limitNumberRowsToShow","organization"], body: (view,Inputs,dataCohortsWithTrueInGroup) => {
 //const organization = view(Inputs.select(organizationList, {multiple: true, label: "select organizations"}))
 const sizeMin = view(Inputs.range([0, 5000000], {label: "greater than this size in bytes",value:0}));
 const sizeMax = view(Inputs.range([10, 100000000], {label: "less than this size in bytes",value:100000000}));
@@ -267,24 +267,34 @@ const max_days_since_updated = view(Inputs.range([0, 10000], {label: "less than 
 const min_days_since_updated = view(Inputs.range([0, 10000], {label: "more than this many forks",value:0}));
 const archived = view(Inputs.select([null].concat(["true","false"]), {label: "archived", value:"false"}));
 const limitNumberRowsToShow = view(Inputs.range([0, 15000], {label: "max number of rows to show",value:15000,step:1}));
-return {sizeMin,sizeMax,stargazer_count_min,fork_count_min,max_days_since_updated,min_days_since_updated,archived,limitNumberRowsToShow};
+const organization = view(Inputs.select([...new Set(dataCohortsWithTrueInGroup.map(item => item.owner)),'*any*'],{sort: true, label: "organization", value: "*any*"}));
+
+return {sizeMin,sizeMax,stargazer_count_min,fork_count_min,max_days_since_updated,min_days_since_updated,archived,limitNumberRowsToShow,organization};
 }});
 
-define({id: "43c522ad", inputs: ["dbRepos","sizeMin","sizeMax","stargazer_count_min","max_days_since_updated","min_days_since_updated","archived","limitNumberRowsToShow"], outputs: ["dbRepos_FilteredBySQL"], body: (dbRepos,sizeMin,sizeMax,stargazer_count_min,max_days_since_updated,min_days_since_updated,archived,limitNumberRowsToShow) => {
-const dbRepos_FilteredBySQL = dbRepos.sql`SELECT * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}`
+define({id: "62e073f9", inputs: ["dbRepos","sizeMin","sizeMax","stargazer_count_min","max_days_since_updated","min_days_since_updated","archived","organization","limitNumberRowsToShow"], outputs: ["dbRepos_FilteredBySQL"], body: (dbRepos,sizeMin,sizeMax,stargazer_count_min,max_days_since_updated,min_days_since_updated,archived,organization,limitNumberRowsToShow) => {
+var dbRepos_FilteredBySQL = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND owner == ${organization} LIMIT ${limitNumberRowsToShow}`
 
-//console.log("dbRepos_FilteredBySQL",dbRepos_FilteredBySQL)
+if(organization == "*any*"){
+  dbRepos_FilteredBySQL = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}`
+}
 
-//const lengthOfdbRepos_FilteredBySQL = await dbRepos_FilteredBySQL.length
-//display(lengthOfdbRepos_FilteredBySQL)
+
 return {dbRepos_FilteredBySQL};
 }});
 
-define({id: "78ee441f", inputs: ["view","Inputs","dbRepos_FilteredBySQL"], outputs: ["table_SQLunfiltered"], body: (view,Inputs,dbRepos_FilteredBySQL) => {
+define({id: "dbeb8c68", inputs: ["view","Inputs","dbRepos_FilteredBySQL"], outputs: ["table_SQLunfiltered"], body: (view,Inputs,dbRepos_FilteredBySQL) => {
+
+
 const table_SQLunfiltered = 
   view(Inputs.table(dbRepos_FilteredBySQL))
 
 return {table_SQLunfiltered};
+}});
+
+define({id: "160e09a6", inputs: ["display","table_SQLunfiltered"], body: (display,table_SQLunfiltered) => {
+display(table_SQLunfiltered.length)
+
 }});
 
 define({id: "03d28ae5", inputs: ["Plot","dbRepos_FilteredBySQL","display"], body: async (Plot,dbRepos_FilteredBySQL,display) => {
@@ -330,6 +340,23 @@ Plot.plot({
   ]
 })
 ))
+}});
+
+define({id: "ceb4a6df", inputs: ["dbRepos","sizeMin","sizeMax","stargazer_count_min","max_days_since_updated","min_days_since_updated","archived","organization","limitNumberRowsToShow"], outputs: ["dbRepos_FilteredBySQL_Federation"], body: (dbRepos,sizeMin,sizeMax,stargazer_count_min,max_days_since_updated,min_days_since_updated,archived,organization,limitNumberRowsToShow) => {
+var dbRepos_FilteredBySQL_Federation = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND owner == ${organization} AND cohort_Nadia_federation == True LIMIT ${limitNumberRowsToShow}`
+
+if(organization == "*any*"){
+  dbRepos_FilteredBySQL_Federation = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND cohort_Nadia_federation == True LIMIT ${limitNumberRowsToShow}`
+}
+
+return {dbRepos_FilteredBySQL_Federation};
+}});
+
+define({id: "1f908c28", inputs: ["view","Inputs","dbRepos_FilteredBySQL_Federation"], outputs: ["table_SQLunfiltered_Federation"], body: (view,Inputs,dbRepos_FilteredBySQL_Federation) => {
+const table_SQLunfiltered_Federation = 
+  view(Inputs.table(dbRepos_FilteredBySQL_Federation))
+
+return {table_SQLunfiltered_Federation};
 }});
 
 </script>
@@ -568,20 +595,32 @@ other organizations use if they model similar cohorts, so please add an issue wi
 </ol>
 <div id="cell-44ce4041" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-8d553220" class="observablehq observablehq--block observablehq--loading"></div>
+<p>Note how it is cognitively easier to reason about the data in the chart where age is shown as a cohort versus a continuous value. It would also be easier to describe to others.</p>
 <hr>
 <h2 id="user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below" tabindex="-1"><a class="observablehq-header-anchor" href="#user-inputs-are-used-in-a-sql-query-that-filters-data-in-tables-and-plots-below">User inputs are used in a SQL query that filters data in tables and plots below</a></h2>
 <div id="cell-d51b2e2b" class="observablehq observablehq--block"></div>
-<div id="cell-9d61ff31" class="observablehq observablehq--block"></div>
+<div id="cell-5bf0cd0d" class="observablehq observablehq--block"></div>
+<p><em>Most repositories are in the 'microsoft', 'Azure', or 'Azure-Samples' GitHub organizations.</em></p>
 <p>The SQL command used to create the table and visualizations below based on the usser selected filters:</p>
 <pre><code>
 SELECT * FROM reposSQL WHERE size &gt; ${sizeMin} AND size &lt; ${sizeMax} AND stargazers_count &gt; ${stargazer_count_min} AND daysSinceUpdated &lt; ${max_days_since_updated} AND daysSinceUpdated &gt; ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}
 </code></pre>
-<div id="cell-43c522ad" class="observablehq observablehq--block"></div>
-<div id="cell-78ee441f" class="observablehq observablehq--block"></div>
+<div id="cell-62e073f9" class="observablehq observablehq--block"></div>
+<div id="cell-dbeb8c68" class="observablehq observablehq--block"></div>
+<p>Number of repositories selected:</p>
+<div id="cell-160e09a6" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-03d28ae5" class="observablehq observablehq--block observablehq--loading"></div>
 <div id="cell-123019a6" class="observablehq observablehq--block observablehq--loading"></div>
+<h4 id="looking-at-only-repositories-in-the-nadia-federation-cohort-if-they-exist" tabindex="-1"><a class="observablehq-header-anchor" href="#looking-at-only-repositories-in-the-nadia-federation-cohort-if-they-exist">Looking at only repositories in the Nadia federation cohort if they exist</a></h4>
+<div id="cell-ceb4a6df" class="observablehq observablehq--block"></div>
+<div id="cell-1f908c28" class="observablehq observablehq--block"></div>
+<h2 id="epilogue" tabindex="-1"><a class="observablehq-header-anchor" href="#epilogue">Epilogue</a></h2>
+<h3 id="small-win" tabindex="-1"><a class="observablehq-header-anchor" href="#small-win">Small win</a></h3>
+<p>If you've reached the end and you're left thinking <em>"Wait, that isn't that complicated and it doesn't offer anything radically different"</em>, you're right. The benefit of the repository cohorts concept isn't that it is extremely novel, uses a sophisticated algorithm, or predicts something extremely hard to figure out. It is simply that it makes it a little easier for an OSPO to leverage metadata for typical Open Source Program Office tasks and more likely that work is sharable and reusable.</p>
+<h3 id="on-metadata-collection" tabindex="-1"><a class="observablehq-header-anchor" href="#on-metadata-collection">On metadata collection</a></h3>
+<p>The complicated part of all this is often collecting metadata and keeping it up-to-date. Microsoft has a centralized team responsible for collecting accurate metadata across all of its code platforms. This isn't possible for every organization. An alternative worth considering is the Centers for Medicare and Medicaid Services OSPO's approach using Augur and GitHub Actions as seen in <a href="https://github.com/dsacms/metrics">their metrics repository</a> which builds <a href="https://dsacms.github.io/metrics/">their metrics site</a>.</p>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-04-16T05:09:32">Apr 16, 2024</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank">Observable</a> on <a title="2024-04-17T13:01:34">Apr 17, 2024</a>.</div>
 </footer>
 </div>
