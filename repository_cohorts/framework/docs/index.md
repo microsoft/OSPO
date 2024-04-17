@@ -392,6 +392,8 @@ Plot.plot({
 })
 ```
 
+Note how it is cognitively easier to reason about the data in the chart where age is shown as a cohort versus a continuous value. It would also be easier to describe to others.
+
 -----------------
 
 ## User inputs are used in a SQL query that filters data in tables and plots below
@@ -415,7 +417,10 @@ const max_days_since_updated = view(Inputs.range([0, 10000], {label: "less than 
 const min_days_since_updated = view(Inputs.range([0, 10000], {label: "more than this many forks",value:0}));
 const archived = view(Inputs.select([null].concat(["true","false"]), {label: "archived", value:"false"}));
 const limitNumberRowsToShow = view(Inputs.range([0, 15000], {label: "max number of rows to show",value:15000,step:1}));
+const organization = view(Inputs.select([...new Set(dataCohortsWithTrueInGroup.map(item => item.owner)),'*any*'],{sort: true, label: "organization", value: "*any*"}));
+
 ```
+*Most repositories are in the 'microsoft', 'Azure', or 'Azure-Samples' GitHub organizations.*
 
 The SQL command used to create the table and visualizations below based on the usser selected filters:
 
@@ -426,20 +431,32 @@ SELECT * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargaz
 
 ```js
 
-const dbRepos_FilteredBySQL = dbRepos.sql`SELECT * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}`
+var dbRepos_FilteredBySQL = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND owner == ${organization} LIMIT ${limitNumberRowsToShow}`
 
-//console.log("dbRepos_FilteredBySQL",dbRepos_FilteredBySQL)
+if(organization == "*any*"){
+  dbRepos_FilteredBySQL = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}`
+}
 
-//const lengthOfdbRepos_FilteredBySQL = await dbRepos_FilteredBySQL.length
-//display(lengthOfdbRepos_FilteredBySQL)
+
 ```
 
 ```js
+
+
 
 const table_SQLunfiltered = 
   view(Inputs.table(dbRepos_FilteredBySQL))
 
 ```
+
+Number of repositories selected:
+
+```js
+
+display(table_SQLunfiltered.length)
+
+```
+
 
 ```js
 Plot.plot({
@@ -483,4 +500,29 @@ Plot.plot({
 })
 ```
 
+#### Looking at only repositories in the Nadia federation cohort if they exist
+
+```js
+
+var dbRepos_FilteredBySQL_Federation = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND owner == ${organization} AND cohort_Nadia_federation == True LIMIT ${limitNumberRowsToShow}`
+
+if(organization == "*any*"){
+  dbRepos_FilteredBySQL_Federation = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND cohort_Nadia_federation == True LIMIT ${limitNumberRowsToShow}`
+}
+
+```
+
+```js
+
+const table_SQLunfiltered_Federation = 
+  view(Inputs.table(dbRepos_FilteredBySQL_Federation))
+
+```
+
+## Epilogue
+### Small win
+If you've reached the end and you're left thinking *"Wait, that isn't that complicated and it doesn't offer anything radically different"*, you're right. The benefit of the repository cohorts concept isn't that it is extremely novel, uses a sophisticated algorithm, or predicts something extremely hard to figure out. It is simply that it makes it a little easier for an OSPO to leverage metadata for typical Open Source Program Office tasks and more likely that work is sharable and reusable.
+
+### On metadata collection
+The complicated part of all this is often collecting metadata and keeping it up-to-date. Microsoft has a centralized team responsible for collecting accurate metadata across all of its code platforms. This isn't possible for every organization. An alternative worth considering is the Centers for Medicare and Medicaid Services OSPO's approach using Augur and GitHub Actions as seen in [their metrics repository](https://github.com/dsacms/metrics) which builds [their metrics site](https://dsacms.github.io/metrics/).
 
