@@ -396,7 +396,7 @@ Note how it is cognitively easier to reason about the data in the chart where ag
 
 -----------------
 
-## User inputs are used in a SQL query that filters data in tables and plots below
+## These user inputs are used in a SQL query below and filters ALL tables and plots below
 
 ```js
 
@@ -413,8 +413,8 @@ const sizeMin = view(Inputs.range([0, 5000000], {label: "greater than this size 
 const sizeMax = view(Inputs.range([10, 100000000], {label: "less than this size in bytes",value:100000000}));
 const stargazer_count_min = view(Inputs.range([0, 10000], {label: "more than this many stargazers",value:0}));
 const fork_count_min = view(Inputs.range([0, 4000], {label: "more than this many forks",value:0}));
-const max_days_since_updated = view(Inputs.range([0, 10000], {label: "less than this many days since updated",value:10000}));
-const min_days_since_updated = view(Inputs.range([0, 10000], {label: "more than this many forks",value:0}));
+const max_days_since_updated = view(Inputs.range([0, 50000], {label: "less than this many days since updated",value:50000}));
+const min_days_since_updated = view(Inputs.range([0, 50000], {label: "more than this many forks",value:0}));
 const archived = view(Inputs.select([null].concat(["true","false"]), {label: "archived", value:"false"}));
 const limitNumberRowsToShow = view(Inputs.range([0, 15000], {label: "max number of rows to show",value:15000,step:1}));
 const organization = view(Inputs.select([...new Set(dataCohortsWithTrueInGroup.map(item => item.owner)),'*any*'],{sort: true, label: "organization", value: "*any*"}));
@@ -436,6 +436,8 @@ var dbRepos_FilteredBySQL = dbRepos.sql`SELECT owner, name, description, * FROM 
 if(organization == "*any*"){
   dbRepos_FilteredBySQL = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} LIMIT ${limitNumberRowsToShow}`
 }
+
+
 
 
 ```
@@ -518,6 +520,60 @@ const table_SQLunfiltered_Federation =
   view(Inputs.table(dbRepos_FilteredBySQL_Federation))
 
 ```
+
+#### Looking at only repositories in the sample cohort if they exist
+This cohort is made of repositories with "sample","demo","example","tutorial" in either the organization name, repository name, 
+or repository description. It is a simplistic means to identify repsoitory that are mostly created for the purpose of 
+being samples rather than a website or a package. It will contain some false positives and miss some false negatives.
+
+```js
+
+var dbRepos_FilteredBySQL_sample = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND owner == ${organization} AND cohort_sample == True LIMIT ${limitNumberRowsToShow}`
+
+if(organization == "*any*"){
+  dbRepos_FilteredBySQL_sample = dbRepos.sql`SELECT owner, name, description, * FROM reposSQL WHERE size > ${sizeMin} AND size < ${sizeMax} AND stargazers_count > ${stargazer_count_min} AND daysSinceUpdated < ${max_days_since_updated} AND daysSinceUpdated > ${min_days_since_updated} AND Archived == ${archived} AND cohort_sample == True LIMIT ${limitNumberRowsToShow}`
+}
+
+```
+
+
+```js
+
+const table_SQLunfiltered_sample = 
+  view(Inputs.table(dbRepos_FilteredBySQL_sample))
+
+```
+
+
+Number of repositories in the sample cohort:
+
+```js
+
+display(table_SQLunfiltered_sample.length)
+
+```
+The distribution of Nadia community types in repositories that are in the samples cohort is surprising similar 
+to the distribution of Nadia community types when not filtering to sample repositories. 
+
+```js
+Plot.plot({
+  title: "Repos in Samples cohort & user selection filtered: Different Nadia community cohorts colored by age cohort",
+  marginTop: 20,
+  marginRight: 20,
+  marginBottom: 30,
+  marginLeft: 40,
+  grid: true,
+  width: 1000,
+  color: { legend: true } ,
+  marks: [
+    Plot.barY(
+  dbRepos_FilteredBySQL_sample,
+  Plot.groupX({ y: "count" }, { x: "cohort_Nadia_trueValueInGroup", title: "full_name", fill: "cohort_age_trueValueInGroup", lineWidth: 74, marginBottom: 40, sort: { x: "x", reverse: true }})
+)
+  ]
+})
+```
+
 
 ## Epilogue
 ### Small win
