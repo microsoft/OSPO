@@ -218,7 +218,7 @@ function createCohortNumericalColTwoTests(data, column, cohortColName, baseThres
 function createCohortStringListPossibleValues(data, column, cohortColName, valueList) {
     return data.map((item) => {
         const columnValue = item[column];
-        const isSubstring = valueList.some((value) => columnValue.includes(value));
+        const isSubstring = valueList.some((value) => columnValue.toLowerCase().includes(value.toLowerCase()));
         return { ...item, [cohortColName]: isSubstring };
     });
 }
