@@ -21,20 +21,22 @@ Another style of sponsorship is a univeral thin spread approach.
 All dependencies that have signed up for a particular funding
 platform are sponsored at the same level no matter their differences.
 
-As part of experimenting through different approaches, Microsoft trialed a data-driven approach in June of 2024 that leveraged the availability of good metadata on 
+As part of experimenting through different approaches, Microsoft trialed a data-driven
+approach in June of 2024 that leveraged the availability of good metadata on 
 packages and their source repositories combined with metadata on the usage of 
-dependencies across our many tens of thousands internal repositories. 
+dependencies across our many tens of thousands internal repositories.
 Our hypothesis was this targeted bulk approach would enable sponsorships to target
 open source projects that were less well known while also being
-highly impactful as judged by public download stats, downstream dependent package counts, 
-and Microsoft internal usage. 
-The final list appears to support these initial hypotheses as there
-are many packages never previously submitted for FOSSFUND.
+highly impactful as judged by public download stats, downstream dependent package counts,
+and Microsoft internal usage. The final list appears to support these initial hypotheses
+as there are many packages never previously submitted for FOSSFUND.
 Additionally, while past FOSS FUND awardees have almost always been organizations,
 this round saw many individuals who develop an impactful open source project
 get sponsored. 
 
-This document attempts to summarize our approach in very broad terms and describe both what we did and more basic approaches others might be able to take who lack the benefits of our internal inventory of engineering systems.
+This document attempts to summarize our approach in very broad terms and describe
+both what we did and more basic approaches others might be able to take who lack the
+benefits of our internal inventory of engineering systems.
 
 ## Dependency Inventory
 ### _To target dependencies at scale, you need a full listing of which ones you use_
