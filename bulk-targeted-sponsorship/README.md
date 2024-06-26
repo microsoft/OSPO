@@ -272,7 +272,7 @@ the subset of dependencies that better match criteria you want to optimize for.
 
 As example, you might want to absolutely not fund anything by your own employees
 and optimize for funding dependencies that see the most usage in your enterprise.
-The first is a binary filter. The second sorts the list.
+The first is a binary filter, and the second sorts the list.
 
 ### Basic: filtering
 
