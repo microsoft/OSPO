@@ -17,8 +17,8 @@ a method of selecting open source for funding driven by employee recommendations
 voting. Employees who make upstream contributions to open source projects earn the right to
 vote on what projects get funded.
 This approach biases sponsorship to well known open source projects. 
-Another style of sponsorship is a univeral thin spread approach.
-All dependencies that have signed up for a particular funding
+Another style of sponsorship is a univeral-thin-spread approach in which
+all dependencies that have signed up for a particular funding
 platform are sponsored at the same level no matter their differences.
 
 As part of experimenting through different approaches, Microsoft trialed a data-driven
