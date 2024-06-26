@@ -22,7 +22,7 @@ All dependencies that have signed up for a particular funding
 platform are sponsored at the same level no matter their differences.
 
 As part of experimenting through different approaches, Microsoft trialed a data-driven
-approach in June of 2024 that leveraged the availability of good metadata on 
+approach in June of 2024 that leveraged the availability of metadata on 
 packages and their source repositories combined with metadata on the usage of 
 dependencies across our many tens of thousands internal repositories.
 Our hypothesis was this targeted bulk approach would enable sponsorships to target
@@ -170,7 +170,7 @@ organization, let alone Microsoft. Although rates vary by language,
 an organization with several hundred repositories will likely have many 
 thousands of dependencies.
 
-### Advanced: collecting metadata the describes your dependencies
+### Advanced: collecting metadata that describes your dependencies
 
 For selecting which dependencies to sponsor in this round,
 Microsoft looked at a number of dimensions leveraging different
