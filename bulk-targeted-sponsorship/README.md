@@ -312,7 +312,7 @@ that might be leveraged for advanced filtering and sorting.
 
 ##### [OSI](https://opensource.org/license) approved license?
 
- - Ecosyste.ms metadata field: `pkg['normalized_licenses']`
+- Ecosyste.ms metadata field: `pkg['normalized_licenses']`
 - _Explanation:_ You may want to flag for manual review any license(s) that are not known
 to be [Open Source inititive](https://opensource.org/license) approved open source license(s). These might be projects where your enterprise has paid for a license or just extremely uncommon licenses. 
 
