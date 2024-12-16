@@ -4,7 +4,7 @@
 This page gives a high level, pseudo code description of how Microsoft selected some of the projects in the June, 2024 FOSS Fund round #30. As the actual approach and code used is very specific to internal Microsoft systems, what is described here is an outline designed for others who might want to leverage a similar approach. 
 
 Please also read these for context: 
-- Microsoft Open Source blog post describing [5 things we learned from sponsoring a sampling of our open source dependencies](https://cloudblogs.microsoft.com/opensource/)
+- Microsoft Open Source blog post describing [5 things we learned from sponsoring a sampling of our open source dependencies](https://opensource.microsoft.com/blog/2024/06/27/5-things-we-learned-from-sponsoring-a-sampling-of-our-open-source-dependencies/)
 - FOSSFUND repository [README](https://github.com/microsoft/foss-fund)
 - [Ecosystems page](https://opensource.microsoft.com/ecosystem/) on opensource.microsoft.com that describes FOSSFUND and other ways Microsoft supports the open source community including 
 Foundations, Azure Credits, etc.
@@ -24,7 +24,7 @@ platform are sponsored at the same level no matter their differences.
 As part of experimenting through different approaches, Microsoft trialed a data-driven
 approach in June of 2024 that leveraged the availability of metadata on 
 packages and their source repositories combined with metadata on the usage of 
-dependencies across our many tens of thousands internal repositories.
+dependencies across our many tens of thousands of internal repositories.
 Our hypothesis was this targeted bulk approach would enable sponsorships to target
 open source projects that were less well known while also being
 highly impactful as judged by public download stats, downstream dependent package counts,
