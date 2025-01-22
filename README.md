@@ -5,11 +5,13 @@ A place where we'll share various resources we've created to help our team and o
 
 ### Learning Resources
 
-Checklists and reusable learning content that may of interest to other OSPOs.
+- [Releasing an open source project](learning_resources/releasing-oss/releasing-oss-strategy.md)
+- [Teaching open source risk and investment - a framework](learning_resources/using-oss/investment-framework.md)
+- [Moderating OSS - pocket guide](learning_resources/moderating-oss/moderating-oss-repos.md)
 
 ### Surveys
 
-Examples survey questions the Microsoft OSPO has used.
+- [Examples survey questions for OSPOs](surveys/foss-fund/)
 
 ### Repository cohorts
 
