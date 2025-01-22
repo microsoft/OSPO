@@ -11,7 +11,7 @@ A place where we'll share various resources we've created to help our team and o
 
 ### Surveys
 
-- [Examples survey questions for OSPOs](surveys/foss-fund/)
+- [Examples of survey questions for OSPOs](surveys/foss-fund/)
 
 ### Repository cohorts
 
