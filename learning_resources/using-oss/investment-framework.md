@@ -4,7 +4,7 @@ While the term ‘funding open source’ captures the overarching conversation a
 
 ## Who is this framework for?
 
-This framework is for anyone: researchers, businesses, non-profits, program/project manaagers, communities or others who want to get better at understanding how to support the continuity of their dependencies using industry-validated metrics. 
+This framework is for anyone: researchers, businesses, non-profits, program/project managers, communities or others who want to get better at understanding how to support the continuity of their dependencies using industry-validated metrics. 
 
 This framework is a teaching tool, a conversation starter, a way to plan, to set goals, and to measure but is not intended as a solutions-pitch. We hope that folks will share their experiences and contribute to the evolution. Paired with the [GitHub funding toolkit](https://github.com/sboysel/open-source-funding-toolkit), tracking investment and impact over time can be helpful for long-term discussions.
 
@@ -14,7 +14,7 @@ This framework can be used as part of engineering training, research, product wo
 
 ## Framework components :microscope:
 
-Vizualized using mermaid.js, components are described below.  Remember, each is a point for conversation, decision making, action and measurement.
+Visualized using mermaid.js, components are described below.  Remember, each is a point for conversation, decision making, action and measurement.
 
 ```mermaid
 
@@ -93,7 +93,7 @@ flowchart LR
                                 
 
   %% Audit
-  investment-options-->audit("`**Audit and/or supplementary support**`"):::investment -- it makes sense to do a deep-dive/assessment with an existing program, which one?
+  investment-options-->audit("`**Assessment and/or supplementary support**`"):::investment -- it makes sense to do a deep-dive/assessment with an existing program, which one?
         audit-->audit-focus{"`**Focus of support?**`"}:::question-node
                 audit-focus-->security-audit("`**Security**`"):::investment-option
                         security-audit-->alpha-omega("`**Alpha Omega Nomination**`"):::program
@@ -107,7 +107,7 @@ funding-action-->rubric
 From left-to-right the framework consists of:
 
 ### Step #1 – What brings you here? (Motivation) :rocket:
-Usually the journey starts with a problem to solve, an 'ask' from a project, or observation from someone who works directly with that project: a limitation in ability to get work done (bugs fixed, features fixed) or there's some masure of proactive action that needs to happen on behalf of security (for example).  All efforts start at the beginning, and understanding and isolating motivations (even if there are a few) will help a lot in figuring out the next steps.
+Usually the journey starts with a problem to solve, an 'ask' from a project, or observation from someone who works directly with that project: a limitation in ability to get work done (bugs fixed, features fixed) or there's some measure of proactive action that needs to happen on behalf of security (for example).  All efforts start at the beginning, and understanding and isolating motivations (even if there are a few) will help a lot in figuring out the next steps.
 
 It's really important, that this feel like a 'learn by doing' exercise, and not journey you start with all the answers.  
 
@@ -135,7 +135,7 @@ The framework currently focuses on these and other critical metrics as they rela
 Beyond immediate risks, important sustainability categories include:
 
 - **[Moderation and Safety](https://chaoss.community/kb/metrics-model-safety/):** Issues like lack of code of conduct enforcement and unaddressed spamming. Safety is sustainability and sustainability risk we don’t talk about enough. One signal of failing community health, of which lack of safety can be a source, is the '[Inactive Contributor](https://chaoss.community/kb/metric-inactive-contributors/)' metric.
-- **[New Contributor Growth](https://chaoss.community/kb/metric-new-contributors/):** If you are particuluarly invested in the success of a dependency, community growth in key markets or ecosystems is important for innovation.
+- **[New Contributor Growth](https://chaoss.community/kb/metric-new-contributors/):** If you are particularly invested in the success of a dependency, community growth in key markets or ecosystems is important for innovation.
 - **Demonstrating Commitment to the Ecosystem:** Visibility as a supporter and sustainer of a project or ecosystem – suitable for good scores too!
 
 ### Step #3 – Evaluate ways of investing for benefit of improving risk or addressing need :star:
@@ -146,7 +146,7 @@ Depending on what you've measured for, there may be several ways to explore impr
 This can be one-time or ongoing through something like GitHub Sponsors.  Some projects have different requirements for how they accept funding, including through fiscal sponsor.
 
 - **Direct to a project or maintainer:** According to the project governance
-- **Support of a community effort:** Often commuinties are on it! There are things like security/moderation working groups who need support, investment and partnership. It really depends on the project how this work to direct funds to specific efforts. Some projects have clear pathways to fund community initiatives, others (especially if they are new) may not yet.  
+- **Support of a community effort:** Often communities are on it! There are things like security/moderation working groups who need support, investment and partnership. It really depends on the project how this work to direct funds to specific efforts. Some projects have clear pathways to fund community initiatives, others (especially if they are new) may not yet.  
 - **Direct to a foundation or related effort:** Supporting an foundation, for ecosystem or specific impact (like security) can often have magnified impact.
 
 #### Support contract
@@ -160,7 +160,7 @@ Events are always in need of great speakers, new ideas, and of course sponsorshi
 
 - **Event sponsorship:** for all the reasons listed in the marketing. 
 - **Sponsor a community member's talk :** for established leadership programs with budget, contributing funds for speakers to attend and talk about a specific technology can do a lot for a project's trajectory.
-- **Employee speaker :** sending employees who are expert in a project/languge to speak is a great way to invest in a project community.
+- **Employee speaker :** sending employees who are expert in a project/language to speak is a great way to invest in a project community.
 
 #### Employee time
 It was interesting to see in the latest report on investing in open source from the Linux Foundation, that a huge amount of investment in the open source ecosystem comes from [employee contribution](https://www.linuxfoundation.org/research/open-source-funding-2024). Directly contributing to a project is a great way to invest, and provides a way to stay involved in decisions, while building relationships.
@@ -173,7 +173,7 @@ It was interesting to see in the latest report on investing in open source from 
 Providing free licenses, or things like [Azure Credits for open source](https://opensource.microsoft.com/blog/2021/09/28/announcing-azure-credits-for-open-source-projects/#:~:text=This%20program%20grants%20Azure%20credits%20to%20open%20source,Source%20Initiative%20%28OSI%29-approved%20license%20is%20eligible%20to%20apply.) are away to help a project reduce the cost of operations.  Very project-dependant.
 
 #### Stop using
-Not technically an investment, but for some risk, like using deprecated projects it’s best to find alternative options, and that’s another business decision (build in-house, find another solution etc). This can include forking the project and maintaining that fork for others, which is both an investment in your dependency and the ecoystem.  See 'Employee time' section to ensure that you have the appropriate resources and check out this resource on [strategically setting goals for an open project](https://github.com/microsoft/OSPO/blob/main/learning_resources/strategy/releasing-oss-strategy.md).
+Not technically an investment, but for some risk, like using deprecated projects it’s best to find alternative options, and that’s another business decision (build in-house, find another solution etc). This can include forking the project and maintaining that fork for others, which is both an investment in your dependency and the ecosystem.  See 'Employee time' section to ensure that you have the appropriate resources and check out this resource on [strategically setting goals for an open project](https://github.com/microsoft/OSPO/blob/main/learning_resources/strategy/releasing-oss-strategy.md).
 
 #### Assessment/supplemental support
 Sometimes the help that's needed, isn't clear - perhaps a project needs help with security, perhaps they just need someone expert support on a topic like governance. Efforts like [Alpha Omega](https://alpha-omega.dev/grants/how-to-apply/) or [GitHub Secure OSS Fund](https://resources.github.com/github-secure-open-source-fund/) may also be opportunities to explore and/or support in general. 
@@ -181,13 +181,13 @@ Sometimes the help that's needed, isn't clear - perhaps a project needs help wit
 #### Funding Sources and Partnerships
 Projects, foundations, and initiatives like FOSS Fund and Alpha Omega have their own budgets and evaluation criteria to indicate their processes take over after nomination.
 
-For new investment, in most companies & organizations this requires building a business case to leverage or generate budget. The good news is by following the framework you are much more likely to have compelling data and insights to do just that. Beyond language, **partnerships for investment can be key**, and the role of an OSPO can be to help surface data that helps build coalitions and partnerships for investment.  Think nearby partnerships (other products/service using your dependencies) and broader in the ecosystem (other companies, and organizations). Partnerships can mangify impact and avoid duplication of effort.
+For new investment, in most companies & organizations this requires building a business case to leverage or generate budget. The good news is by following the framework you are much more likely to have compelling data and insights to do just that. Beyond language, **partnerships for investment can be key**, and the role of an OSPO can be to help surface data that helps build coalitions and partnerships for investment.  Think nearby partnerships (other products/service using your dependencies) and broader in the ecosystem (other companies, and organizations). Partnerships can magnify impact and avoid duplication of effort.
 
 ### Step #4 Measuring Impact Over Time :straight_ruler:
 
 This framework is a cycle – there is no start and end. Set up milestones and monitor progress regularly. Having direct dialogue with maintainers, projects and being a part of communities is even better. We encourage this always.
 
-[GitHub has an awesome new toolkit for organiing and tracking investment](https://github.com/sboysel/open-source-funding-toolkit). This can help with impact tracking but also help tell a story of ‘funding open source’ for your company which is a whole other challenge. There’s also a CHAOSS working group for the purpose of collaborating on ‘investment impact’.
+[GitHub has an awesome new toolkit for organizing and tracking investment](https://github.com/sboysel/open-source-funding-toolkit). This can help with impact tracking but also help tell a story of ‘funding open source’ for your company which is a whole other challenge. There’s also a CHAOSS working group for the purpose of collaborating on ‘investment impact’.
 
 ### Remember :boat:
 Unless agreed-up in something like a service-agreement, no investment in open source equates to obligation of that project to treat you/your company differently than any other member of the community. Lift all boats.
