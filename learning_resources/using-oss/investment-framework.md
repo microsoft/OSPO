@@ -187,7 +187,7 @@ For new investment, in most companies & organizations this requires building a b
 
 This framework is a cycle – there is no start and end. Set up milestones and monitor progress regularly. Having direct dialogue with maintainers, projects and being a part of communities is even better. We encourage this always.
 
-[GitHub has an awesome new toolkit for organizing and tracking investment](https://github.com/sboysel/open-source-funding-toolkit). This can help with impact tracking but also help tell a story of ‘funding open source’ for your company which is a whole other challenge. There’s also a CHAOSS working group for the purpose of collaborating on ‘investment impact’.
+[GitHub has an awesome new toolkit for organizing and tracking investment](https://github.com/sboysel/open-source-funding-toolkit). This can help with impact tracking but also help tell a story of ‘funding open source’ for your company which is a whole other challenge. There’s also a [CHAOSS working group for the purpose of collaborating with other OSPOs](https://github.com/chaoss/wg-ospo).
 
 ### Remember :boat:
 Unless agreed-up in something like a service-agreement, no investment in open source equates to obligation of that project to treat you/your company differently than any other member of the community. Lift all boats.
