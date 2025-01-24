@@ -76,7 +76,7 @@ flowchart LR
                 speaker-attendee-->team-budget-->funding-action
 
     %% Employee Time    
-    investment-options-->engineering-time("`**Employee time for contribution**`"):::investment -- is this one time, time-bound, or enduringm- lots of ways to invest in events? 
+    investment-options-->engineering-time("`**Employee time for contribution**`"):::investment -- is this one time, time-bound, or enduring- lots of ways to invest in events? 
                  engineering-time-->time-commitment("`**FTE/Half time/Casual**`"):::investment-option
                                     time-commitment-->funding-action
 
