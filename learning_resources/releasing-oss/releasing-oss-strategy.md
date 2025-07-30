@@ -23,7 +23,9 @@ effectively. Specifically this is a continual cycle.
 This playbook will take you through that release and renewal cycle, to ensure
 your success.
 
-![The Way Cycle (circular graph with six steps): What problem are you trying to solve, who do you want to collaborate with, what are the jobs to be done, what skills are involved, make a plan, communicate, measure and renew](../assets/the-way.png)
+![The Way Cycle (circular graph with six steps in order listed in this document): What problem are you trying to solve, who do you want to collaborate with, what are the jobs to be done, what skills are involved, make a plan, communicate, measure and renew](../assets/the-way.png)
+
+Diagram created by Claude.ai based on the steps in this document
 
 ## Step 1: What Problem Are you Trying to Solve?
 
