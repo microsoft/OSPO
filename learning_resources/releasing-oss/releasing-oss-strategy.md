@@ -331,7 +331,7 @@ Some of the tools below can provide you with tooling for metrics insights.
 - [CHAOSS Tool](https://ai.chaoss.io/): This is a community tool which provides
   some of the most popular metrics for a given GitHub repository. They're also
   open to new requests, and improvements via the
-  [CHAOSS community](https://chaoss.community/).
+- [CHAOSS community](https://chaoss.community/).
 
 What does success look like for each of the jobs to be done, for you and your
 collaborators? Look back at the jobs to be done for your team and your
