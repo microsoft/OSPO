@@ -21,7 +21,7 @@ effectively. Specifically this is a continual cycle.
 This playbook will take you through that release and renewal cycle, to ensure
 your success.
 
-![The Way Cycle (circular graph with six steps): What problem are you trying to solve, who do you want to collaborate with, what are the jobs to be done, what skills are involved, make a plan, communicate, measure and renew](../assets/the-way-1.png)
+![The Way Cycle (circular graph with six steps): What problem are you trying to solve, who do you want to collaborate with, what are the jobs to be done, what skills are involved, make a plan, communicate, measure and renew](../assets/the-way.png)
 
 ## Step 1: What Problem Are you Trying to Solve?
 
@@ -195,7 +195,7 @@ considerations:
 
 ## Step 7: Repeat and Renew
 
-![The Way Cycle (circular graph with six steps): What problem are you trying to solve, who do you want to collaborate with, what are the jobs to be done, what skills are involved, make a plan, communicate, measure and renew](../assets/the-way-2.png)
+![The Way Cycle (circular graph with six steps): What problem are you trying to solve, who do you want to collaborate with, what are the jobs to be done, what skills are involved, make a plan, communicate, measure and renew](../assets/the-way.png)
 
 **Releasing a project openly is just a beginning, it's something that needs
 regularly revisited. It's a renewable cycle**:
