@@ -30,16 +30,22 @@ easily scannable and understandable by developers such that they make better inf
 consumption.
 
 There is a more extensive README on the dependency risk instruction files at `.github/instructions/dependency-risk-README.md` that contains
-information on how the instruction files work, what problems they solve, and shows examples of what a dependency risk report that appears
+information on how the instruction files work, what problems they solve, and [shows an example](.github/instructions/dependency-risk-README.md#example-dependency-risk-report) of what a dependency risk report that appears
 in the GitHub Copilot chat window looks like.
+
+This approach is at prototype stage. Please leave feedback in issues in this repository. We can imagine you might
+have the `dependency-risk-company-level.instructions.md` file point at your company's MCP server for internal information
+on dependencies or third party MCP tools that provide additional dependency risk information.
 
 #### Reusable patterns of these instruction files
 
-These instructions are split into more than one file so that some of the instructions can live in an external repository
+These instructions are split into more than one file, so some of the instructions can live in an external repository
 or MCP (Model Context Protocol) server. You might want to use that type of approach anytime you have parts of the
 instructions that you want owned by a centralized team, like an OSPO or platform engineering team, and parts owned by
 individual repositories but that all goes to build the same GitHub Copilot experience driven by instruction files.
-The alternative is having to manage instruction files as individual stale files in hundreds or thousands of repositories.
+The alternative is having to manage instruction files as individual files, that get stale, across hundreds or thousands
+of repositories via pull requests. Note that this approach also requires usage of wording in the base instruction file that asks
+the user for permission to use instructions in the external location.
 
 ## LICENSE
 
