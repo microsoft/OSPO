@@ -19,6 +19,28 @@ The `framework` directory within the `repository_cohorts directory` holds an Obs
 that builds a static GitHub pages page that should be viewable [here](https://microsoft.github.io/OSPO/repository_cohorts/framework/dist/)
 . It implements the repository cohorts concept for a fixed export of Microsoft public repository metadata.
 
+### Instruction files for surfacing dependency risk information
+
+In the `.github/instructions` folder there are instruction files that are consumed by GitHub Copilot.
+
+These dependency risk instruction files are designed to provide detailed guidance for Copilot, when in agent mode, on
+where to get information and how to assess the risks of using a third-party package or library in software development,
+as well as how to format that information into a standardized dependency risk report in the chat window that is
+easily scannable and understandable by developers such that they make better informed decisions about dependency
+consumption.
+
+There is a more extensive README on the dependency risk instruction files at `.github/instructions/dependency-risk-README.md` that contains
+information on how the instruction files work, what problems they solve, and shows examples of what a dependency risk report that appears
+in the GitHub Copilot chat window looks like.
+
+#### Reusable patterns of these instruction files
+
+These instructions are split into more than one file so that some of the instructions can live in an external repository
+or MCP (Model Context Protocol) server. You might want to use that type of approach anytime you have parts of the
+instructions that you want owned by a centralized team, like an OSPO or platform engineering team, and parts owned by
+individual repositories but that all goes to build the same GitHub Copilot experience driven by instruction files.
+The alternative is having to manage instruction files as individual stale files in hundreds or thousands of repositories.
+
 ## LICENSE
 
 [Creative Commons Attribution 4.0 International](LICENSE)
